@@ -40,10 +40,11 @@ async function createPokemon(e)  {
   try {
     const result = await fetch(url, option);
     const json = await result.json();
-    if (json.message) {
-      return   setMessageAPI(json.message)
+    console.log(json)
+    if (json.message === 'Pokemon name already exist') {
+      return   setMessageAPI('Pokemon is already on safari')
     }
-    setMessageAPI('Pokemon created successfully');
+    setMessageAPI('Pokemon added to safari successfully');
   } catch (error) {
     console.log(error)
     }
