@@ -13,6 +13,17 @@ const getByQuery = async ( req, res, next) => {
   }
 }
 
+const create = async (req, res, next) => {
+  try {
+    const newPokemon = await pokemonService.create(req.body)
+
+    return res.status(201).json(newPokemon)
+  
+  } catch (error) {
+    next(error)
+  }
+}
 
 
-module.exports = {getByQuery}
+
+module.exports = {getByQuery, create}

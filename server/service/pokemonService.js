@@ -9,4 +9,12 @@ const getByQuery = async (namePokemon) => {
   }
 }
 
-module.exports = { getByQuery}
+const create = async (infosPokemon) => {
+  const {id, name, image} = infosPokemon
+  
+  const newPokemon = await Pokemon.create({id, name, image})
+  
+  return newPokemon
+  }
+
+module.exports = { getByQuery, create}
