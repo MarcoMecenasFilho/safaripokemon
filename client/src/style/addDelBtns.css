@@ -1,0 +1,6 @@
+.btn-add-del {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3%;
+  width: 100%;
+}
