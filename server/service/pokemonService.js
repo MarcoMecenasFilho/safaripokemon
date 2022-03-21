@@ -17,4 +17,13 @@ const create = async (infosPokemon) => {
   return newPokemon
   }
 
-module.exports = { getByQuery, create}
+  const exclude = async (name) => {
+    const deletePokemon = await Pokemon.destroy({where: {name}})
+    if(deletePokemon === 0) {
+      return {code:404, message: `${name} does not exist in the database to be deleted`}
+    }
+    
+    return {}
+  }
+
+module.exports = { getByQuery, create, exclude}

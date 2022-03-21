@@ -24,6 +24,19 @@ const create = async (req, res, next) => {
   }
 }
 
+const exclude = async (req, res, next) => {
+  try {
+    const {name} = req.body
+    const deletePokemon =   await pokemonService.exclude(name)
+    const {message, code} = deletePokemon
+    if(message) {
+      return res.status(code).json({message})
+    }
+      return res.status(204).end()
+  } catch (error) {
+    next(error)
+  }
+}
 
 
-module.exports = {getByQuery, create}
+module.exports = {getByQuery, create, exclude}
