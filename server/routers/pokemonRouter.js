@@ -1,4 +1,5 @@
 const express = require('express');
+const { getByQuery } = require('../controller/pokemonController');
 const router = express.Router();
 
 router.get(
