@@ -1,13 +1,13 @@
 import React from 'react';
-
+import SearchBar from '../components/SearchBar';
 
 export default function Pokedex() {
 
 
 
   return (
-    <div >
-      Hello!!
-    </div>
+    <div className='main-div'>
+    < SearchBar />
+  </div>
   )
 }
