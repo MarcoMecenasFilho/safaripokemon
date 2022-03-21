@@ -3,9 +3,10 @@ import propTypes from 'prop-types';
 import AppContext from './AppContext';
 
 export default function AppProvider({ children }) {
- 
+  const [capturedPokemon, setCapturedPokemon] = useState([])
   const context = {
-  
+    capturedPokemon, 
+    setCapturedPokemon,
   };
 
   return (
