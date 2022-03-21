@@ -1,5 +1,7 @@
 const express = require('express');
 const { getByQuery } = require('../controller/pokemonController');
+const validationCreatePokemon = require('../middleware/validationCreatePokemon');
+const {validationPokemonId, validationPokemonName} = require('../middleware/validationPokemon');
 const router = express.Router();
 
 router.get(
@@ -9,6 +11,9 @@ router.get(
 
 router.post(
   '/',
+  validationCreatePokemon,
+  validationPokemonName,
+  validationPokemonId,
   create,
 );
 
