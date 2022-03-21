@@ -3,7 +3,7 @@ require('dotenv').config();
 const cors = require('cors');
 
 const express = require('express');
-const errorHandler = require('./middleware/errorHandler');
+const errorHandler = require('../middleware/errorHandler');
 const  pokemonRouter  = require('./routers/pokemonRouter');
 
 const app = express();
