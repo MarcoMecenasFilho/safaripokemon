@@ -1,0 +1,29 @@
+
+.form-div {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 1%;
+}
+
+form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px 0 20px 2%;
+  width: 100%;
+}
+
+.form-div-input {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2%;
+  width: 100%;
+}
+
+.form-div-input input {
+  width: 150% !important;
+}

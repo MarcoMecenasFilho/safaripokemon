@@ -1,5 +1,7 @@
 import React,  { useState, useContext } from 'react';
-import  AppContext from '../context/AppContext'
+import  AppContext from '../context/AppContext';
+import { Form, Button, FloatingLabel } from 'react-bootstrap';
+import '../style/searchBar.css';
 
 export default function SearchBar() {
 
@@ -40,12 +42,19 @@ async function getPokemon(e)  {
 
   }
   return (
-    <div>
-      <form onSubmit={(e) => getPokemon(e)}>
-        <input type='text' placeholder='Pokemon' onChange={(e) => handleChange(e)} />
-        <button  type='submit'>Capture Pokemon</button>
-        <h1>{statusReq}</h1>
-      </form>
+    <div className='form-div'>
+      <Form onSubmit={(e) => getPokemon(e)}>
+        <div className='form-div-input'>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Pokemon name"
+            className="mb-3 input" >
+            <Form.Control  type="text" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+          </FloatingLabel>
+          <Button  type='submit'>Capture Pokemon</Button>
+        </div>
+        <h4>{statusReq}</h4>
+      </Form>
     </div>
   )
 }
