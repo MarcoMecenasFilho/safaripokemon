@@ -1,3 +1,4 @@
+
 require('dotenv').config();
 const cors = require('cors');
 
@@ -14,5 +15,4 @@ app.use('/pokemon', pokemonRouter);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`ouvindo porta ${PORT}!`));
+module.exports = app;
