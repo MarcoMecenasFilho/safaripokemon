@@ -4,3 +4,35 @@
   margin-bottom: 3%;
   width: 100%;
 }
+
+.btn-div-del {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-div-del > button  {
+  background-color: rgb(0, 0, 0, 0);
+  border-style: none;
+  width: 30%;
+}
+
+.btn-div-del > button img {
+  width: 100%;
+}
+
+.btn-div-add {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-div-add > button  {
+  background-color: rgb(0, 0, 0, 0);
+  border-style: none;
+  width: 30%;
+}
+
+.btn-div-add > button img {
+    width: 100%;
+}

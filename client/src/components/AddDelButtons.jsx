@@ -3,6 +3,8 @@ import  AppContext from '../context/AppContext';
 import CreatePokemon from '../components/CreatePokemon';
 import DeletePokemon from '../components/DeletePokemon';
 import '../style/addDelBtns.css';
+import addpokemon from '../images/addpokemon.png';
+import delpokemon from '../images/delpokemon.png';
 
 export default function AddDelButtons() {
 
@@ -15,11 +17,15 @@ export default function AddDelButtons() {
   return (
     <div className='btn-add-del'>
       <div className='btn-div-add'>
-        <button type='button' onClick={() => setCreateOn(!createOn)}>add pokemon on safari</button>
+        <button type='button' onClick={() => setCreateOn(!createOn)}>
+          <img src={addpokemon} alt='addpokemonicon' />
+        </button>
         {createOn && <CreatePokemon />}
       </div>
       <div className='btn-div-del'>
-        <button type='button' onClick={() => setDeleteOn(!deleteOn)}>remove pokemon on safari</button>
+        <button type='button' onClick={() => setDeleteOn(!deleteOn)}>
+        <img src={delpokemon} alt='delpokemonicon' />
+        </button>
         { deleteOn && <DeletePokemon />}
       </div>
     </div>

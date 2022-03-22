@@ -1,5 +1,7 @@
 import React, {useState, useContext} from 'react'
 import  AppContext from '../context/AppContext';
+import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import '../style/delpokemon.css'
 
 export default function DeletePokemon() {
   const [name, setName] = useState('');
@@ -42,13 +44,19 @@ async function deletePokemon(e)  {
   }
 
   return (
-    <div>
-      <form onSubmit={(e) => deletePokemon(e)}>
-        <button  type='submit' onClick={() => setDeleteOn(!deleteOn)}>x</button>
-        <input type='text' name='name' placeholder='Name' onChange={(e) => handleChange(e)} required />
-        <button  type='submit'>Remove pokemon from safari</button>
-        <h1>{messageAPI}</h1>
-      </form>
-    </div>
+      <Form className='form-del' onSubmit={(e) => deletePokemon(e)}>
+      <div className='close-btn-del'>
+          <Button variant="danger"  type='button' onClick={() => setDeleteOn(!deleteOn)}>x</Button>
+        </div>
+        <h5>remove pokemon on safari</h5>
+        <FloatingLabel
+            controlId="floatingInput"
+            label="Pokemon name"
+            className="mb-3 input" >
+            <Form.Control  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+          </FloatingLabel>
+        <Button  type='submit'>Remove pokemon from safari</Button>
+        <h4>{messageAPI}</h4>
+      </Form>
   )
 }

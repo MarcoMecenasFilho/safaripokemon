@@ -54,11 +54,11 @@ async function createPokemon(e)  {
   }
 
   return (
-    <div>
-      <Form onSubmit={(e) => createPokemon(e)}>
+      <Form className='form-create' onSubmit={(e) => createPokemon(e)}>
         <div className='close-btn'>
-          <Button variant="danger"  type='submit' onClick={() => setCreateOn(!createOn)}>x</Button>
+          <Button variant="danger"  type='button' onClick={() => setCreateOn(!createOn)}>x</Button>
         </div>
+        <h5>add pokemon on safari</h5>
         <FloatingLabel
             controlId="floatingInput"
             label="Pokemon name"
@@ -80,6 +80,5 @@ async function createPokemon(e)  {
         <Button  type='submit'>Create Pokemon</Button>
         <h1>{messageAPI}</h1>
       </Form>
-    </div>
   )
 }

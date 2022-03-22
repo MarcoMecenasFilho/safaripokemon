@@ -1,13 +1,12 @@
-form-create {
-  width: 46%;
+.form-del {
+  width: 100%;
 }
-
-.close-btn {
+.close-btn-del {
   align-items: center;
   display: flex !important;
   height: 50px;
   justify-content: flex-end;
-  margin: 15px;
+  margin: 20px;
   width: 100%;
 }
 
