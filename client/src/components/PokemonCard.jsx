@@ -12,11 +12,11 @@ export default function PokemonCard() {
     setCapturedPokemon(filteredPokemon)
   }
   return (
-    <div className='div-catch'>
+    <div>
       <h1>Captured pokemon</h1>
-      <div className='catchPokemon'>
+      <div>
       {capturedPokemon.map((infos, index) => (
-        <div key={index} className='cardPokemon'>
+        <div key={index} >
           <h1>{infos.name}</h1>
           <h3>{infos.id}</h3>
           <img src={infos.image} alt='pokemonImage'/>

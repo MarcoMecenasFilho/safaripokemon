@@ -1,0 +1,9 @@
+.close-btn {
+  align-items: center;
+  display: flex !important;
+  height: 50px;
+  justify-content: flex-end;
+  margin: 15px;
+  width: 100%;
+}
+

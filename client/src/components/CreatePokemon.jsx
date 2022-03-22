@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import  AppContext from '../context/AppContext'
-
+import { Form, FloatingLabel, Button } from 'react-bootstrap';
+import '../style/createpokemon.css'
 export default function CreatePokemon() {
   const [name, setName] = useState('');
   const [id, setId] = useState(0);
@@ -54,14 +55,31 @@ async function createPokemon(e)  {
 
   return (
     <div>
-      <form onSubmit={(e) => createPokemon(e)}>
-        <button  type='submit' onClick={() => setCreateOn(!createOn)}>x</button>
-        <input type='text' name='name' placeholder='Name' onChange={(e) => handleChange(e)} required />
-        <input type='number' name='id' placeholder='Id' onChange={(e) => handleChange(e)} required/>
-        <input type='text' name='image' placeholder='Image' onChange={(e) => handleChange(e)} required/>
-        <button  type='submit'>Create Pokemon</button>
+      <Form onSubmit={(e) => createPokemon(e)}>
+        <div className='close-btn'>
+          <Button variant="danger"  type='submit' onClick={() => setCreateOn(!createOn)}>x</Button>
+        </div>
+        <FloatingLabel
+            controlId="floatingInput"
+            label="Pokemon name"
+            className="mb-3 input" >
+            <Form.Control  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Pokemon id"
+            className="mb-3 input" >
+            <Form.Control  type="number" name="id" onChange={(e) => handleChange(e)} placeholder='Id' required />
+          </FloatingLabel>
+          <FloatingLabel
+            controlId="floatingInput"
+            label="Pokemon image"
+            className="mb-3 input" >
+            <Form.Control  type="text" name="image" onChange={(e) => handleChange(e)} placeholder='Image' required />
+          </FloatingLabel>
+        <Button  type='submit'>Create Pokemon</Button>
         <h1>{messageAPI}</h1>
-      </form>
+      </Form>
     </div>
   )
 }
