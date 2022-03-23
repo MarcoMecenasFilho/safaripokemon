@@ -1,7 +1,5 @@
 import React,  { useState, useContext } from 'react';
-import  AppContext from '../context/AppContext';
-import { Form, Button, FloatingLabel } from 'react-bootstrap';
-import '../style/searchBar.css';
+import  AppContext from '../context/AppContext'
 
 export default function SearchBar() {
 
@@ -22,7 +20,7 @@ async function getPokemon(e)  {
   if(capturedPokemon[0]) {
   const ifCaptured = capturedPokemon.some((poke) => poke.name.toLowerCase() ===  searchPokemon.toLowerCase().trim())
     if(ifCaptured) {
-      return setStatusReq('Pokemon has been captured')
+      return setStatusReq('Pokemon já foi capturado')
     }
 }
 
@@ -31,10 +29,9 @@ async function getPokemon(e)  {
     const json = await result.json();
     console.log(json)
     if (json.message) {
-    return   setStatusReq('Pokemon not found on safari');
+    return   setStatusReq('Pokemon não foi encontrado');
     }
-    setSearchPokemon('');
-    setStatusReq('Successfully captured pokemon');
+    setStatusReq('Pokemon Capturado com sucesso')
     setCapturedPokemon([...capturedPokemon, json]);
   } catch (error) {
     console.log(error)
@@ -43,19 +40,12 @@ async function getPokemon(e)  {
 
   }
   return (
-    <div className='form-div'>
-      <Form onSubmit={(e) => getPokemon(e)}>
-        <div className='form-div-input'>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="Pokemon name"
-            className="mb-3 input" >
-            <Form.Control  type="text" value={searchPokemon} onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
-          </FloatingLabel>
-          <Button  type='submit'>Capture Pokemon</Button>
-        </div>
-        <h4>{statusReq}</h4>
-      </Form>
+    <div>
+      <form onSubmit={(e) => getPokemon(e)}>
+        <input type='text' placeholder='Pokemon' onChange={(e) => handleChange(e)} />
+        <button  type='submit'>Catch Pokemon</button>
+        <h1>{statusReq}</h1>
+      </form>
     </div>
   )
 }

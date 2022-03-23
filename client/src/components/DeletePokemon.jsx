@@ -29,6 +29,7 @@ async function deletePokemon(e)  {
   try {
     const result = await fetch(url, option);
     if (result.status ===204) {
+      setName('');
       return  setMessageAPI(`${name} taken from safari`);
     }
     const json = await result.json()
@@ -53,10 +54,10 @@ async function deletePokemon(e)  {
             controlId="floatingInput"
             label="Pokemon name"
             className="mb-3 input" >
-            <Form.Control  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+            <Form.Control  value={name} type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
         <Button  type='submit'>Remove pokemon from safari</Button>
-        <h4>{messageAPI}</h4>
+        <h5>{messageAPI}</h5>
       </Form>
   )
 }

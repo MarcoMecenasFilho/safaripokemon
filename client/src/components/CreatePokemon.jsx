@@ -45,6 +45,9 @@ async function createPokemon(e)  {
     if (json.message === 'Pokemon name already exist') {
       return   setMessageAPI('Pokemon is already on safari')
     }
+    setName('');
+    setId('');
+    setImage('');
     setMessageAPI('Pokemon added to safari successfully');
   } catch (error) {
     console.log(error)
@@ -63,22 +66,22 @@ async function createPokemon(e)  {
             controlId="floatingInput"
             label="Pokemon name"
             className="mb-3 input" >
-            <Form.Control  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+            <Form.Control value={name}  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput"
             label="Pokemon id"
             className="mb-3 input" >
-            <Form.Control  type="number" name="id" onChange={(e) => handleChange(e)} placeholder='Id' required />
+            <Form.Control  value={id} type="number" name="id" onChange={(e) => handleChange(e)} placeholder='Id' required />
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput"
             label="Pokemon image"
             className="mb-3 input" >
-            <Form.Control  type="text" name="image" onChange={(e) => handleChange(e)} placeholder='Image' required />
+            <Form.Control value={image} type="text" name="image" onChange={(e) => handleChange(e)} placeholder='Image' required />
           </FloatingLabel>
         <Button  type='submit'>Create Pokemon</Button>
-        <h1>{messageAPI}</h1>
+        <h5>{messageAPI}</h5>
       </Form>
   )
 }

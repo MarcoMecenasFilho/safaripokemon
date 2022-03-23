@@ -1,0 +1,25 @@
+.catchPokemon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  max-width: 90%;
+  flex-wrap: wrap;
+}
+
+.cardPokemon {
+  width: 20%;
+}
+
+.cardPokemon > img {
+  width: 90%;
+  border-radius: 100%;
+}
+
+.div-catch {
+  display: flex;
+  flex-direction: column;
+}
+
+.div-catch > h1 {
+  align-self: center;
+}
