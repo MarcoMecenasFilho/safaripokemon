@@ -1,0 +1,17 @@
+.main-div {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-div:before {
+  background-image: url('../images/back.jpg');
+  content: "";
+  position: fixed;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}

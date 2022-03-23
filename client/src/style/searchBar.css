@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-around;
   margin-top: 1%;
+  width: 100%;
 }
 
 form {
@@ -16,6 +17,12 @@ form {
   width: 100%;
 }
 
+form > h4 {
+  color: black;
+  background-color: rgb(240, 248, 255, 0.9);
+  font-weight: 800;
+}
+
 .form-div-input {
   align-items: center;
   display: flex;
@@ -23,7 +30,6 @@ form {
   margin-top: 1%;
   width: 100%;
 }
-
-.form-div-input input {
-  width: 150% !important;
+.input {
+  width: 60%;
 }

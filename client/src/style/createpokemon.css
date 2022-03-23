@@ -1,5 +1,19 @@
-form-create {
-  width: 46%;
+.form-create {
+  background-color: rgb(240, 248, 255, 0.5);
+  border-radius: 20px;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.form-create > h5 {
+  text-align: center;
+  color: black;
+  font-weight: 800;
+  width: 90%;
+}
+
+.btn-create {
+  margin-bottom: 20px;
 }
 
 .close-btn {

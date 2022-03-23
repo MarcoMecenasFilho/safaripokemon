@@ -49,14 +49,14 @@ async function deletePokemon(e)  {
       <div className='close-btn-del'>
           <Button variant="danger"  type='button' onClick={() => setDeleteOn(!deleteOn)}>x</Button>
         </div>
-        <h5>remove pokemon on safari</h5>
+        <h5>Remove Pokemon on safari</h5>
         <FloatingLabel
             controlId="floatingInput"
             label="Pokemon name"
             className="mb-3 input" >
             <Form.Control  value={name} type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
-        <Button  type='submit'>Remove pokemon from safari</Button>
+        <Button className='btn-del' type='submit'>Remove Pokemon </Button>
         <h5>{messageAPI}</h5>
       </Form>
   )

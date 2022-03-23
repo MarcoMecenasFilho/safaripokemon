@@ -61,7 +61,7 @@ async function createPokemon(e)  {
         <div className='close-btn'>
           <Button variant="danger"  type='button' onClick={() => setCreateOn(!createOn)}>x</Button>
         </div>
-        <h5>add pokemon on safari</h5>
+        <h5>Add Pokemon on safari</h5>
         <FloatingLabel
             controlId="floatingInput"
             label="Pokemon name"
@@ -80,7 +80,7 @@ async function createPokemon(e)  {
             className="mb-3 input" >
             <Form.Control value={image} type="text" name="image" onChange={(e) => handleChange(e)} placeholder='Image' required />
           </FloatingLabel>
-        <Button  type='submit'>Create Pokemon</Button>
+        <Button className='btn-create' type='submit'>Create Pokemon</Button>
         <h5>{messageAPI}</h5>
       </Form>
   )

@@ -4,17 +4,25 @@ import '../style/pokemonCard.css'
 
 export default function PokemonCard() {
   const {
-    capturedPokemon, 
-  } = useContext(AppContext)
+    capturedPokemon, setCapturedPokemon} = useContext(AppContext)
+
+  const freePokemon = ({target}) => {
+    const pokemonFiltered = capturedPokemon.filter(pokemon => pokemon.name !== target.value)
+    setCapturedPokemon(pokemonFiltered);
+  }
   return (
     <div className='div-catch'>
-      <h1>Pokemon capturados</h1>
+      <h1>Captured Pokemon</h1>
+      {!capturedPokemon.length && <h1 className='no-pokemon'>No pokemon captured yet</h1>}
       <div className='catchPokemon'>
       {capturedPokemon.map((infos, index) => (
         <div key={index} className='cardPokemon'>
-          <h1>{infos.name}</h1>
-          <h3>{infos.id}</h3>
+          <div className='infos-card'>
+            <h4>{infos.name}</h4>
+            <h5>{infos.id}</h5>
+          </div>
           <img src={infos.image} alt='pokemonImage'/>
+          <button value={infos.name} onClick={(e) => freePokemon(e)}>Free pokemon</button>
         </div>
       ))
 
