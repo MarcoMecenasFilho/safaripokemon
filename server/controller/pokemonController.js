@@ -5,7 +5,7 @@ const getByQuery = async ( req, res, next) => {
     const {namepokemon} = req.query;
     const getPokemon = await pokemonService.getByQuery(namepokemon);
     if(!getPokemon) {
-      return res.status(404).json({message: 'Pokemon not found'})
+      return res.status(404).json({message: `${namepokemon ? namepokemon : "Pokemon"} not found`})
     }
     return res.status(200).json(getPokemon)
   } catch (error) {

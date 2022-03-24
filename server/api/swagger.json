@@ -128,10 +128,67 @@
               }
             }
           }
-        }}}
+        }},
+      "get":{
+        "summary": "Lista pokemon procurado no banco de dados",
+        "description": "Essa rota ira procurar o pokemon no banco de dados",
+        "tags": ["pokemon"],
+        "parameters": [
+          {
+            "name": "namepokemon",
+            "in": "query",
+            "description": "Nome do Pokemon para buscar no bando de dados",
+            "required": true,
+            "schema": {
+              "example": "Pikachu"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                    "$ref": "#/components/schemas/PokemonSearch"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonNotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+      }
   },
   "components": {
     "schemas": {
+      "PokemonSearch": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Pikachu"
+          }
+        }
+      },
+      "PokemonNotFound": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Pikachu not found"
+          }
+        }
+      },
       "PokemonCreate": {
         "type": "object",
         "properties": {
