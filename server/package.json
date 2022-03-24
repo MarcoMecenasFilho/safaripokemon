@@ -12,7 +12,8 @@
     "mysql2": "2.1.0",
     "react-router-dom": "^5.3.0",
     "sequelize": "6.3.4",
-    "shelljs": "0.8.4"
+    "shelljs": "0.8.4",
+    "swagger-ui-express": "^4.3.0"
   },
   "scripts": {
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate $",

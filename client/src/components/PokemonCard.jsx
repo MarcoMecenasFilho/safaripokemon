@@ -13,7 +13,7 @@ export default function PokemonCard() {
   return (
     <div className='div-catch'>
       <h1>Captured Pokemon</h1>
-      {!capturedPokemon.length && <h1 className='no-pokemon'>No pokemon captured yet</h1>}
+      {!capturedPokemon.length && <h1 className='no-pokemon'>No Pokemon captured yet</h1>}
       <div className='catchPokemon'>
       {capturedPokemon.map((infos, index) => (
         <div key={index} className='cardPokemon'>

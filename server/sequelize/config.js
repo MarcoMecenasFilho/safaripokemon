@@ -2,11 +2,18 @@ require('dotenv').config();
 module.exports = {
   development: {
     username: 'root',
-    password: 'password',
-    database: 'pokemon_safari',
-    host: 'db',
+    password: '39261171',
+    database: 'pokemon',
+    host: 'localhost',
     dialect: 'mysql',
-  },
+  }
+  // development: {
+  //   username: 'root',
+  //   password: 'password',
+  //   database: 'pokemon_safari',
+  //   host: 'db',
+  //   dialect: 'mysql',
+  // },
   //   test: {
   //   username: 'root',
   //   password: null,

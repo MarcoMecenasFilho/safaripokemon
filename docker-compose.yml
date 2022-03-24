@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - 3308:3306
+    networks:
+      - shared-network
+
+  api:
+    container_name: pokemon_safari_api
+    restart: unless-stopped
+    image: pokemon-safari-backend
+    build: ./server
+    ports:
+      - 3001:3001
+    networks:
+      - shared-network
+    depends_on:
+      - "db"
+
+  client:
+    container_name: pokemon_safari_client
+    restart: unless-stopped
+    image: pokemon-safari-frontend
+    build: ./client
+    ports:
+      - 3000:3000
+    networks:
+      - shared-network
+    depends_on:
+      - "api"
+
+networks:
+  shared-network:
+    driver: 'bridge'

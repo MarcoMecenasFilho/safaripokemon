@@ -1,0 +1,211 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de Safari Pokemon",
+    "description": "Essa API tem como objetivo a manipução de dados de pokemons.",
+    "version": "1.0.0",
+    "contact": {
+      "email": "marcomecenasfilho@gmail.com"
+    }
+  },
+    "servers": [
+      {
+        "url": "localhost:3001/pokemon",
+        "description": "API de test"
+      }
+    ],
+  "paths": {
+    "/pokemon": {
+      "post": {
+        "summary": "Cria um novo pokemon",
+        "description": "Essa rota ira criar um novo pokemon",
+        "tags": ["pokemon"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Pokemon"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Pokemon"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflito",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf":[ 
+                  {"$ref": "#/components/schemas/PokemonNameExists"},
+                  {"$ref": "#/components/schemas/PokemonIdExists"}
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Requisição inválida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf":[ 
+                  {"$ref": "#/components/schemas/NameRequired"},
+                  {"$ref": "#/components/schemas/NameEmpty"},
+                  {"$ref": "#/components/schemas/IdRequired"},
+                  {"$ref": "#/components/schemas/IdEmpty"},
+                  {"$ref": "#/components/schemas/ImageRequired"},
+                  {"$ref": "#/components/schemas/ImageEmpty"}
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Erro de validação",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf":[ 
+                  {"$ref": "#/components/schemas/IdTypeNumber"},
+                  {"$ref": "#/components/schemas/IdInteger"},
+                  {"$ref": "#/components/schemas/IdPositive"}
+                  ]
+                }
+              }
+            }
+          }
+        }
+    }}
+  },
+  "components": {
+    "schemas": {
+      "Pokemon": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Bulbasaur"
+          },
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "image": {
+            "type": "string",
+            "example": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+          }
+        }
+      },
+      "PokemonIdExists": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Pokemon id already exists"
+          }
+        }
+      },
+      "PokemonNameExists": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Pokemon name already exists"
+          }
+        }
+      },
+      "NameRequired": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Name is required"
+          }
+        }
+      },
+      "NameEmpty": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Name is not allowed to be empty"
+          }
+        }
+      },
+      "IdRequired": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Id is required"
+          }
+        }
+      },
+      "IdEmpty": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Id is not allowed to be empty"
+          }
+        }
+      },
+      "IdTypeNumber": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Id must be a number"
+          }
+        }
+      },
+      "IdInteger": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Id must an integer"
+          }
+        }
+      },
+      "IdPositive": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Id must be greater than or equal to 1"
+          }
+        }
+      },
+      "ImageRequired": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Image is required"
+          }
+        }
+      },
+      "ImageEmpty": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Image is not allowed to be empty"
+          }
+        }
+      }
+    }
+  }
+}
