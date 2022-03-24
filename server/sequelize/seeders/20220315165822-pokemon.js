@@ -45,6 +45,11 @@ module.exports = {
         id: 9,
         name: 'Blastoise',
         image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png',
+      },
+      {
+        id: 25,
+        name: 'Pikachu',
+        image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
       }
       ], { timestamps: false });
   },

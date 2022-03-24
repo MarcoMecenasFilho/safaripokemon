@@ -2,15 +2,16 @@
   "openapi": "3.0.0",
   "info": {
     "title": "API de Safari Pokemon",
-    "description": "Essa API tem como objetivo a manipução de dados de pokemons.",
+    "description": "Essa API tem como objetivo a manipulação de dados de pokemon.",
     "version": "1.0.0",
     "contact": {
-      "email": "marcomecenasfilho@gmail.com"
+      "email": "marcomecenasfilho@gmail.com",
+      "url": "https://marcomecenasfilho.vercel.app/"
     }
   },
     "servers": [
       {
-        "url": "localhost:3001/pokemon",
+        "url": "http://localhost:3001",
         "description": "API de test"
       }
     ],
@@ -18,13 +19,13 @@
     "/pokemon": {
       "post": {
         "summary": "Cria um novo pokemon",
-        "description": "Essa rota ira criar um novo pokemon",
+        "description": "Essa rota ira criar um novo pokemon no banco de dados",
         "tags": ["pokemon"],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pokemon"
+                "$ref": "#/components/schemas/PokemonCreate"
               }
             }
           }
@@ -36,7 +37,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Pokemon"
+                  "$ref": "#/components/schemas/PokemonCreate"
                 }
               }
             }
@@ -86,26 +87,75 @@
             }
           }
         }
-    }}
+    },
+      "delete": {
+        "summary": "Deleta um  pokemon",
+        "description": "Essa rota ira deletar um  pokemon no banco de dados",
+        "tags": ["pokemon"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PokemonDelete"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Requisição inválida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf":[ 
+                  {"$ref": "#/components/schemas/NameRequired"},
+                  {"$ref": "#/components/schemas/NameEmpty"}
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PokemonNotFoundInDB"
+                }
+              }
+            }
+          }
+        }}}
   },
   "components": {
     "schemas": {
-      "Pokemon": {
+      "PokemonCreate": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "example": "Bulbasaur"
+            "example": "Butterfree"
           },
           "id": {
             "type": "number",
-            "example": 1
+            "example": 12
           },
           "image": {
             "type": "string",
-            "example": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
+            "example": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"
           }
-        }
+        }},
+        "PokemonDelete": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "Bulbasaur"
+            }
+          }
       },
       "PokemonIdExists": {
         "type": "object",
@@ -203,6 +253,15 @@
           "message": {
             "type": "string",
             "example": "Image is not allowed to be empty"
+          }
+        }
+      },
+      "PokemonNotFoundInDB": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Bulbasaur does not exist in the database to be deleted"
           }
         }
       }
