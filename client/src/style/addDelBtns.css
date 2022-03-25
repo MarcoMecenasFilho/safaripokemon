@@ -36,3 +36,31 @@
 .btn-div-add > button img {
     width: 100%;
 }
+
+@media screen and (max-width: 1100px) {
+  .btn-add-del {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+  }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .btn-add-del {
+    flex-direction: column;
+    justify-content: space-around;
+    width: 90%;
+  }
+
+  .btn-div-del > button  {
+    width: 50%;
+    margin: 20px 0;
+  }
+
+  .btn-div-add > button  {
+    width: 50%;
+    margin: 20px 0;
+  }
+  
+}

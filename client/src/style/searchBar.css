@@ -17,10 +17,18 @@ form {
   width: 100%;
 }
 
-form > h4 {
+.status-message {
+  background-color: rgb(240, 248, 255, 0.7);
+  border-radius: 10px;
+  margin-top: 20px;
+  max-width: 90%;
+}
+
+.status-message > h4 {
   color: black;
-  background-color: rgb(240, 248, 255, 0.9);
   font-weight: 800;
+  margin: 15px;
+  text-align: center;
 }
 
 .form-div-input {
@@ -33,3 +41,17 @@ form > h4 {
 .input {
   width: 60%;
 }
+
+@media screen and (max-width: 710px) {
+  .form-div-input {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .form-floating>.form-control {
+    width: 100%;
+  }
+}
+  

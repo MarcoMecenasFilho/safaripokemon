@@ -54,7 +54,9 @@ async function getPokemon(e)  {
           </FloatingLabel>
           <Button  type='submit'>Capture Pokemon</Button>
         </div>
-        <h4>{statusReq}</h4>
+        <div className='status-message'>
+          <h4>{statusReq}</h4>
+        </div>
       </Form>
     </div>
   )

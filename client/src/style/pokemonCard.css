@@ -33,9 +33,11 @@
   border-radius: 20px;
   color: black;
   padding: 10px;
+  text-align: center;
 }
 
 .no-pokemon {
+  text-align: center;
   margin-top: 50px;
   font-weight: 800;
   text-decoration: underline;
@@ -107,3 +109,41 @@
   width: 60%;
 }
 
+
+
+@media screen and (max-width: 1300px) {
+
+
+  .cardPokemon {
+    width: 30%;
+    margin: 10px 10px;
+  }
+
+  
+}
+
+
+@media screen and (max-width: 750px) {
+
+
+  .cardPokemon {
+    width: 45%;
+    margin: 10px 2%;
+  }
+
+  
+}
+
+@media screen and (max-width: 500px) {
+
+
+  .cardPokemon {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  .catchPokemon {
+    width: 100%;
+  }
+  
+}
