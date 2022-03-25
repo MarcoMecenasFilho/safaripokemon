@@ -174,9 +174,17 @@
       "PokemonSearch": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "number",
+            "example": 25
+          },
           "name": {
             "type": "string",
             "example": "Pikachu"
+          },
+          "image": {
+            "type": "string",
+            "example": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
           }
         }
       },
