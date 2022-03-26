@@ -12,7 +12,6 @@
     "mysql2": "2.1.0",
     "react-router-dom": "^5.3.0",
     "sequelize": "6.3.4",
-    "shelljs": "0.8.4",
     "swagger-ui-express": "^4.3.0"
   },
   "scripts": {
@@ -22,12 +21,14 @@
     "drop": "npx sequelize-cli db:drop $",
     "seed": "npx sequelize-cli db:seed:all $",
     "test": " mocha tests/**/*.js ",
-    "testjest": "jest tests/integration/*.js ",
-    "debug": "nodemon ./api/server.js",
+    "dev": "NODE_ENV=test PORT=3002 node ./api/server.js -dev",
+    "testjest": "NODE_ENV=test jest tests/integration/*.js ",
+    "testexit": "npx kill-port 3002",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "devDependencies": {
     "chai": "^4.3.6",
+    "cross-env": "^7.0.3",
     "eslint": "6.8.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-plugin-import": "2.22.1",
@@ -36,6 +37,7 @@
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
     "sequelize-cli": "6.2.0",
+    "shelljs": "^0.8.5",
     "sinon": "^13.0.1",
     "supertest": "4.0.2"
   }
