@@ -1,0 +1,89 @@
+const frisby = require('frisby');
+const { BASE_URL } = require('../helper/helpers');
+const shell = require('shelljs');
+const newPokemon = {
+  id: 25,
+  name: "Pikachu",
+  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+};
+
+describe('Test endpoint to create Pokemon', () => {
+    shell.exec('npx sequelize-cli db:drop');
+    shell.exec('npx sequelize-cli db:create && npx sequelize-cli db:migrate $')
+
+  it('should create a new Pokemon', async () => {
+  
+    await frisby.post(`${BASE_URL}/pokemon`, newPokemon)
+      .expect('status', 201)
+      .then((response) => {
+        const {json} = response;
+        expect(json).toEqual(newPokemon);
+      })
+  });
+  it('When the name is not passed', async () => { 
+  
+  await frisby.post(`${BASE_URL}/pokemon`, {
+    id: 25,
+    image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+  })
+    .expect('status', 400)
+    .then((response) => {
+      const {json} = response;
+      expect(json).toEqual({ message:"Name is required" });
+    })
+  });
+  it('When the name is empty', async () => { 
+  
+    await frisby.post(`${BASE_URL}/pokemon`, {
+      name: "",
+      id: 25,
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+    })
+      .expect('status', 400)
+      .then((response) => {
+        const {json} = response;
+        expect(json).toEqual({ message:"Name is not allowed to be empty" });
+      })
+    });
+    it('When the id is not passed', async () => { 
+  
+      await frisby.post(`${BASE_URL}/pokemon`, {
+        name: "Pikachu",
+        image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+      })
+        .expect('status', 400)
+        .then((response) => {
+          const {json} = response;
+          expect(json).toEqual({ message:"Id is required" });
+        })
+      });
+
+        it('When the image is not passed', async () => { 
+  
+          await frisby.post(`${BASE_URL}/pokemon`, {
+            name: "Pikachu",
+            id: 25
+          })
+            .expect('status', 400)
+            .then((response) => {
+              const {json} = response;
+              expect(json).toEqual({ message:"Image is required" });
+            })
+          });
+
+
+      it('When the image is empty', async () => { 
+  
+        await frisby.post(`${BASE_URL}/pokemon`, {
+          name: "Pikachu",
+          id: 25,
+          image: ""
+        })
+          .expect('status', 400)
+          .then((response) => {
+            const {json} = response;
+            expect(json).toEqual({ message:"Image is not allowed to be empty" });
+          })
+        });
+
+})

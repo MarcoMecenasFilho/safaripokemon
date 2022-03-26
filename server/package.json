@@ -10,6 +10,7 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "2.1.0",
+    "node": "^17.7.1",
     "react-router-dom": "^5.3.0",
     "sequelize": "6.3.4",
     "swagger-ui-express": "^4.3.0"
@@ -17,13 +18,12 @@
   "scripts": {
     "prestart": "npx sequelize-cli db:create && npx sequelize-cli db:migrate $",
     "start": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && nodemon ./api/server.js $ ",
-    "allcommand": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && nodemon ./api/server.js $ ",
+    "allcommand": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all $ ",
     "drop": "npx sequelize-cli db:drop $",
     "seed": "npx sequelize-cli db:seed:all $",
     "test": " mocha tests/**/*.js ",
-    "dev": "NODE_ENV=test PORT=3002 node ./api/server.js -dev",
-    "testjest": "NODE_ENV=test jest tests/integration/*.js ",
-    "testexit": "npx kill-port 3002",
+    "dev": " NODE_ENV=test nodemon ./api/server.js",
+    "testjest": "jest tests/integration/*.js ",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "devDependencies": {

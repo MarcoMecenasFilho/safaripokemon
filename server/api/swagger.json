@@ -64,7 +64,6 @@
                   {"$ref": "#/components/schemas/NameRequired"},
                   {"$ref": "#/components/schemas/NameEmpty"},
                   {"$ref": "#/components/schemas/IdRequired"},
-                  {"$ref": "#/components/schemas/IdEmpty"},
                   {"$ref": "#/components/schemas/ImageRequired"},
                   {"$ref": "#/components/schemas/ImageEmpty"}
                   ]
@@ -264,15 +263,6 @@
           "message": {
             "type": "string",
             "example": "Id is required"
-          }
-        }
-      },
-      "IdEmpty": {
-        "type": "object",
-        "properties": {
-          "message": {
-            "type": "string",
-            "example": "Id is not allowed to be empty"
           }
         }
       },

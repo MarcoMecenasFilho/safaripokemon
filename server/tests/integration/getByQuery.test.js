@@ -3,10 +3,14 @@ const { BASE_URL } = require('../helper/helpers');
 const shell = require('shelljs');
 
 
-describe('Test endpoint to search Pokemon by name', () => {
-    shell.exec('cross-env NODE_ENV=test npx sequelize-cli db:drop');
-    shell.exec('cross-env NODE_ENV=test npx sequelize-cli db:create && cross-env NODE_ENV=test npx sequelize-cli db:migrate && cross-env NODE_ENV=test npx sequelize-cli db:seed:all $');
+describe.skip('Test endpoint to search Pokemon by name', () => {
 
+  beforeEach(() => {
+    shell.exec('npx sequelize-cli db:drop');
+    shell.exec('npx sequelize-cli db:create && npx sequelize-cli db:migrate $');
+    shell.exec('npx sequelize-cli db:seed:all $');
+  });
+  
   it ('GET should return a status of 200 OK', function () {
     return frisby
       .get(`${BASE_URL}/pokemon/?namepokemon=charizard`)
