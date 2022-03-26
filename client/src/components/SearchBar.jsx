@@ -13,7 +13,9 @@ export default function SearchBar() {
   const [statusReq, setStatusReq] = useState('')
 
 const handleChange = ({target}) => {
-  setSearchPokemon(target.value);
+    const lower = target.value.toLowerCase();
+  const capitalized = target.value.charAt(0).toUpperCase() + lower.slice(1);
+  setSearchPokemon(capitalized);
 };
 const url = `http://localhost:3001/pokemon?namepokemon=${searchPokemon}`
 
