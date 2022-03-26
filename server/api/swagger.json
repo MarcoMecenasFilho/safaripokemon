@@ -280,7 +280,7 @@
         "properties": {
           "message": {
             "type": "string",
-            "example": "Id must an integer"
+            "example": "Id must be integer"
           }
         }
       },
