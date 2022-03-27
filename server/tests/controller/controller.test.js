@@ -113,43 +113,57 @@ describe('CONTROLLERS TESTS POKEMON', () => {
         expect(response.json.calledWith(serviceResponseSuccess)).to.be.true;
       })
     })
+
     describe('Quando as validações falham', () => { 
       it('Quando "name" não é passado no body', async () => {
           request.body = {id: 1, image: 'imagemdopokemon'};
           await validationCreatePokemon(request, response, next);
           expect(response.status.calledWith('400')).to.be.true;
-          expect(response.json.calledWith( {message: '"Name" is required'})).to.be.true;
+          expect(response.json.calledWith( {message: 'Name is required'})).to.be.true;
       })
       it('Quando "name"  é passado vazio no body', async () => {
         request.body = {name: "", id: 1, image: "imagemdopokemon"};
         await validationCreatePokemon(request, response, next);
         expect(response.status.calledWith('400')).to.be.true;
-        expect(response.json.calledWith( {message: '"Name" is not allowed to be empty'})).to.be.true;
+        expect(response.json.calledWith( {message: 'Name is not allowed to be empty'})).to.be.true;
     })
     it('Quando "image" não é passado no body', async () => {
       request.body = {name: "Bulbasaur", id: 1};
       await validationCreatePokemon(request, response, next);
       expect(response.status.calledWith('400')).to.be.true;
-      expect(response.json.calledWith( {message: '"Image" is required'})).to.be.true;
+      expect(response.json.calledWith( {message: 'Image is required'})).to.be.true;
   })
     it('Quando "Image"  é passado vazio no body', async () => {
       request.body = {name: "Bulbasaur", id: 1, image: ""};
       await validationCreatePokemon(request, response, next);
       expect(response.status.calledWith('400')).to.be.true;
-      expect(response.json.calledWith( {message: '"Image" is not allowed to be empty'})).to.be.true;
+      expect(response.json.calledWith( {message: 'Image is not allowed to be empty'})).to.be.true;
     })
     it('Quando "Id" não é passado', async () => {
       request.body = {name: "Bulbasaur", image: "imagempokemon"}
       await validationCreatePokemon(request, response, next)
       expect(response.status.calledWith('400')).to.be.true;
-      expect(response.json.calledWith( {message: '"Id" is required'})).to.be.true;
+      expect(response.json.calledWith( {message: 'Id is required'})).to.be.true;
     })
     it('Quando "Id" não é um numero inteiro', async () => {
-      request.body = {name: "Bulbasaur", id:22.22, image: "imagempokemon"} 
+      request.body = {name: "Bulbasaur", id: 22.22, image: "imagempokemon"} 
       await validationCreatePokemon(request, response, next)
       expect(response.status.calledWith('422')).to.be.true;
-      expect(response.json.calledWith( {message: '"Id" must an integer'})).to.be.true;
+      expect(response.json.calledWith( {message: 'Id must be integer'})).to.be.true;
     })
+
+    it('Quando "Id" não é um numero', async () => {
+      request.body = {name: "Bulbasaur", id: "22.22", image: "imagempokemon"} 
+      await validationCreatePokemon(request, response, next)
+      expect(response.status.calledWith('422')).to.be.true;
+      expect(response.json.calledWith( {message: 'Id must be a number'})).to.be.true;
+    })
+
+    it('Quando "Id" não é positivo', async () => {
+      request.body = {name: "Bulbasaur", id: -22, image: "imagempokemon"} 
+      await validationCreatePokemon(request, response, next)
+      expect(response.status.calledWith('422')).to.be.true;
+      expect(response.json.calledWith( {message: 'Id must be greater than or equal to 1'})).to.be.true;
     })
     
   })
@@ -181,6 +195,7 @@ describe('CONTROLLERS TESTS POKEMON', () => {
         expect(response.json.calledWith({message: serviceResponseSuccess.message})).to.be.true;
       })
     })
+
     describe('Caso o pokemon exista no banco', () => { 
   
       const serviceResponseSuccess = {}
@@ -200,26 +215,23 @@ describe('CONTROLLERS TESTS POKEMON', () => {
         expect(response.status.calledWith(204)).to.be.true;
       })
 
-      it('Chama o response.json com os dados do pokemon ', async () =>{
-        await pokemonController.exclude(request, response, next)
-
-        expect(response.json.calledWith({})).to.be.true;
-      })
     })
-    describe('Quando as validações falham para exlcluir pokemon', () => { 
+    describe('Quando as validações falham para excluir pokemon', () => { 
       it('Quando "name" não é passado no body', async () => {
           request.body = {id: 1, image: 'imagemdopokemon'};
           await validationDeletePokemon(request, response, next);
           expect(response.status.calledWith('400')).to.be.true;
-          expect(response.json.calledWith( {message: '"Name" is required'})).to.be.true;
+          expect(response.json.calledWith( {message: 'Name is required'})).to.be.true;
       })
       it('Quando "name"  é passado vazio no body', async () => {
         request.body = {name: "", id: 1, image: "imagemdopokemon"};
         await validationDeletePokemon(request, response, next);
         expect(response.status.calledWith('400')).to.be.true;
-        expect(response.json.calledWith( {message: '"Name" is not allowed to be empty'})).to.be.true;
+        expect(response.json.calledWith( {message: 'Name is not allowed to be empty'})).to.be.true;
     })
     })
     
   })
 })
+
+});

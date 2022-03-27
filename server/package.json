@@ -21,7 +21,7 @@
     "allcommand": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all $ ",
     "drop": "npx sequelize-cli db:drop $",
     "seed": "npx sequelize-cli db:seed:all $",
-    "test": " mocha tests/**/*.js ",
+    "test": " mocha tests/controller/*.js && jest tests/integration/*.js $ ",
     "dev": " NODE_ENV=test nodemon ./api/server.js",
     "testjest": "jest tests/integration/*.js ",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."

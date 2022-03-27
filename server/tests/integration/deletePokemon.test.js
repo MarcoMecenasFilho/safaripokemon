@@ -45,7 +45,7 @@ describe('Test endpoint to delete Pokemon by name', () => {
       })
         .expect('status', 400)
         .expect('json', {
-          "message": "Name  is required"
+          "message": "Name is required"
         });
     });
 
@@ -59,7 +59,7 @@ describe('Test endpoint to delete Pokemon by name', () => {
       })
         .expect('status', 400)
         .expect('json', {
-          "message": "Name  is not allowed to be empty"
+          "message": "Name is not allowed to be empty"
         });
     });
   
