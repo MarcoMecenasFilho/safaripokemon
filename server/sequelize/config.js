@@ -1,33 +1,33 @@
 require('dotenv').config();
 module.exports = {
-  // development: {
-  //   username: 'root',
-  //   password: '39261171',
-  //   database: 'pokemon_safari',
-  //   host: 'localhost',
-  //   dialect: 'mysql',
-  // },
   development: {
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
+    username: 'root',
+    password: '39261171',
     database: 'pokemon_safari',
-    host: process.env.HOSTNAME,
+    host: 'localhost',
     dialect: 'mysql',
   },
-  test: {
-    database: 'pokemon_safari-test',
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    host: process.env.HOSTNAME,
-    dialect: 'mysql',
-  },
-  //   test: {
-  //   username: 'root',
-  //   password: '39261171',
-  //   database: 'pokemon_safari_test',
-  //   host: 'localhost',
+  // development: {
+  //   username: process.env.MYSQL_USER,
+  //   password: process.env.MYSQL_PASSWORD,
+  //   database: 'pokemon_safari',
+  //   host: process.env.HOSTNAME,
   //   dialect: 'mysql',
   // },
+  // test: {
+  //   database: 'pokemon_safari-test',
+  //   username: process.env.MYSQL_USER,
+  //   password: process.env.MYSQL_PASSWORD,
+  //   host: process.env.HOSTNAME,
+  //   dialect: 'mysql',
+  // },
+    test: {
+    username: 'root',
+    password: '39261171',
+    database: 'pokemon_safari_test',
+    host: 'localhost',
+    dialect: 'mysql',
+  },
   // production: {
   //   username: 'root',
   //   password: null,

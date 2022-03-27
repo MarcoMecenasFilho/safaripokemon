@@ -2,14 +2,24 @@ const frisby = require('frisby');
 const { BASE_URL } = require('../helper/helpers');
 const shell = require('shelljs');
 const newPokemon = {
-  id: 25,
-  name: "Pikachu",
-  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+  id: 12,
+  name: "Butterfree",
+  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"
+};
+
+const pokemon = {
+  id: 1,
+  name: "Bulbasaur",
+  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
 };
 
 describe('Test endpoint to create Pokemon', () => {
+
+  beforeEach(() => {
     shell.exec('npx sequelize-cli db:drop');
     shell.exec('npx sequelize-cli db:create && npx sequelize-cli db:migrate $')
+    shell.exec('npx sequelize-cli db:seed:all $');
+  });
 
   it('should create a new Pokemon', async () => {
   
@@ -23,13 +33,14 @@ describe('Test endpoint to create Pokemon', () => {
 
   it('when Pokemon name already exists in database', async () => {
   
-    await frisby.post(`${BASE_URL}/pokemon`, newPokemon)
+    await frisby.post(`${BASE_URL}/pokemon`, pokemon)
       .expect('status', 409)
       .then((response) => {
         const {json} = response;
         expect(json).toEqual( {message: 'Pokemon name already exists'});
       })
   });
+  
   it('when Pokemon id already exists in database', async () => {
   
     await frisby.post(`${BASE_URL}/pokemon`, {

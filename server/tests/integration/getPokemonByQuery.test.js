@@ -3,7 +3,7 @@ const { BASE_URL } = require('../helper/helpers');
 const shell = require('shelljs');
 
 
-describe.skip('Test endpoint to search Pokemon by name', () => {
+describe('Test endpoint to search Pokemon by name', () => {
 
   beforeEach(() => {
     shell.exec('npx sequelize-cli db:drop');
