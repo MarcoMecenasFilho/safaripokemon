@@ -6,6 +6,7 @@ export default function AppProvider({ children }) {
   const [capturedPokemon, setCapturedPokemon] = useState([]);
   const [createOn, setCreateOn] = useState(false);
   const [deleteOn, setDeleteOn] = useState(false);
+  
   const context = {
     capturedPokemon, 
     setCapturedPokemon,

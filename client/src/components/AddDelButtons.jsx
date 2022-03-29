@@ -17,7 +17,7 @@ export default function AddDelButtons() {
   return (
     <div className='btn-add-del'>
       <div className='btn-div-add'>
-        <button type='button' onClick={() => setCreateOn(!createOn)}>
+        <button type='button' onClick={() => setCreateOn(!createOn)} data-testid={"add-btn"}>
           <img src={addpokemon} alt='addpokemonicon' />
         </button>
         {createOn && <CreatePokemon />}

@@ -57,7 +57,7 @@ async function createPokemon(e)  {
   }
 
   return (
-      <Form className='form-create' onSubmit={(e) => createPokemon(e)}>
+      <Form className='form-create' onSubmit={(e) => createPokemon(e)} data-testid={"form-add"}>
         <div className='close-btn'>
           <Button variant="danger"  type='button' onClick={() => setCreateOn(!createOn)}>x</Button>
         </div>
