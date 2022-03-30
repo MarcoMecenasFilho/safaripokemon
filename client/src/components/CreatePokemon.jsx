@@ -66,19 +66,19 @@ async function createPokemon(e)  {
             controlId="floatingInput"
             label="Pokemon name"
             className="mb-3 input" >
-            <Form.Control value={name}  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+            <Form.Control data-testid={"name-create-form"} value={name}  type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput"
             label="Pokemon id"
             className="mb-3 input" >
-            <Form.Control  value={id} type="number" name="id" onChange={(e) => handleChange(e)} placeholder='Id' required />
+            <Form.Control data-testid={"id-create-form"} value={id} type="number" name="id" onChange={(e) => handleChange(e)} placeholder='Id' required />
           </FloatingLabel>
           <FloatingLabel
             controlId="floatingInput"
             label="Pokemon image"
             className="mb-3 input" >
-            <Form.Control value={image} type="text" name="image" onChange={(e) => handleChange(e)} placeholder='Image' required />
+            <Form.Control data-testid={"image-create-form"} value={image} type="text" name="image" onChange={(e) => handleChange(e)} placeholder='Image' required />
           </FloatingLabel>
         <Button className='btn-create' type='submit'>Create Pokemon</Button>
         <h5>{messageAPI}</h5>
