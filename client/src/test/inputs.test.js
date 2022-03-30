@@ -8,19 +8,37 @@ import {pokemonEmpty} from './mocks/ProvideStateMock'
 
 
 
-describe('Test if all inputs exist in the application', () => {
+describe('Test if all inputs exists in the application', () => {
 
-  describe('Test the button that create pokemon in the database', () => {
+  describe('Test the form that search Pokemon in the database', () => {
+    it('Test if input name  exists in forms', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+      const inputName = screen.getByTestId('search-name-pokemon');
+      expect(inputName).toBeInTheDocument();
+    });
+
+    it('Test if pokemon search button exists in forms', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+      const searchBtn = screen.getByText('Capture Pokemon');
+      expect(searchBtn).toBeInTheDocument();
+    });
+    
+
+  });
+
+  describe('Test the form that create Pokemon in the database', () => {
 
     
     it('Test if the add pokemon button exists and when clicked it opens the forms', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      expect(addbtn).toBeInTheDocument();
+      const addBtn = screen.getByTestId("add-btn");
+      expect(addBtn).toBeInTheDocument();
 
-      userEvent.click(addbtn);
+      userEvent.click(addBtn);
 
       const forms = screen.getByTestId('form-add')
       expect(forms).toBeInTheDocument();
@@ -31,8 +49,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      userEvent.click(addbtn);
+      const addBtn = screen.getByTestId("add-btn");
+      userEvent.click(addBtn);
       
       const h5Text = screen.getByText('Add Pokemon on safari');
       expect(h5Text).toBeInTheDocument();
@@ -42,8 +60,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      userEvent.click(addbtn);
+      const addBtn = screen.getByTestId("add-btn");
+      userEvent.click(addBtn);
       const inputName = screen.getByTestId('name-create-form');
       expect(inputName).toBeInTheDocument();
     });
@@ -52,8 +70,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      userEvent.click(addbtn);
+      const addBtn = screen.getByTestId("add-btn");
+      userEvent.click(addBtn);
       const inputId = screen.getByTestId('id-create-form');
       expect(inputId).toBeInTheDocument();
     });
@@ -62,8 +80,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      userEvent.click(addbtn);
+      const addBtn = screen.getByTestId("add-btn");
+      userEvent.click(addBtn);
       const inputImage = screen.getByTestId('image-create-form');
       expect(inputImage).toBeInTheDocument();
     });
@@ -72,8 +90,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      userEvent.click(addbtn);
+      const addBtn = screen.getByTestId("add-btn");
+      userEvent.click(addBtn);
 
       const btn = screen.getByText('Add Pokemon')
       expect(btn).toBeInTheDocument();
@@ -83,10 +101,10 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      expect(addbtn).toBeInTheDocument();
+      const addBtn = screen.getByTestId("add-btn");
+      expect(addBtn).toBeInTheDocument();
 
-      userEvent.click(addbtn);
+      userEvent.click(addBtn);
 
       const btnAdd = screen.getByText('Add Pokemon')
       expect(btnAdd).toBeInTheDocument();
@@ -96,10 +114,10 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const addbtn = screen.getByTestId("add-btn");
-      expect(addbtn).toBeInTheDocument();
+      const addBtn = screen.getByTestId("add-btn");
+      expect(addBtn).toBeInTheDocument();
 
-      userEvent.click(addbtn);
+      userEvent.click(addBtn);
 
       const forms = screen.getByTestId('form-add')
       expect(forms).toBeInTheDocument();
@@ -115,16 +133,16 @@ describe('Test if all inputs exist in the application', () => {
 
   });
 
-  describe('Test the button that delete pokemon in the database', () => {
+  describe('Test the form that delete pokemon in the database', () => {
 
     it('Test if the delete pokemon button exists and when clicked it opens the forms', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const deletebtn = screen.getByTestId("delete-btn");
-      expect(deletebtn).toBeInTheDocument();
+      const deleteBtn = screen.getByTestId("delete-btn");
+      expect(deleteBtn).toBeInTheDocument();
 
-      userEvent.click(deletebtn);
+      userEvent.click(deleteBtn);
 
       const forms = screen.getByTestId('form-delete')
       expect(forms).toBeInTheDocument();
@@ -134,8 +152,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const deletebtn = screen.getByTestId("delete-btn");
-      userEvent.click(deletebtn);
+      const deleteBtn = screen.getByTestId("delete-btn");
+      userEvent.click(deleteBtn);
       
       const h5Text = screen.getByText('Remove Pokemon on safari');
       expect(h5Text).toBeInTheDocument();
@@ -146,8 +164,8 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const deletebtn = screen.getByTestId("delete-btn");
-      userEvent.click(deletebtn);
+      const deleteBtn = screen.getByTestId("delete-btn");
+      userEvent.click(deleteBtn);
       const inputName = screen.getByTestId('name-delete-form');
       expect(inputName).toBeInTheDocument();
     });
@@ -170,10 +188,10 @@ describe('Test if all inputs exist in the application', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
 
-      const deletebtn = screen.getByTestId('delete-btn');
-      expect(deletebtn).toBeInTheDocument();
+      const deleteBtn = screen.getByTestId('delete-btn');
+      expect(deleteBtn).toBeInTheDocument();
 
-      userEvent.click(deletebtn);
+      userEvent.click(deleteBtn);
 
       const forms = screen.getByTestId('form-delete')
       expect(forms).toBeInTheDocument();

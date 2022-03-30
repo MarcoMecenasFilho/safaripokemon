@@ -52,9 +52,9 @@ async function getPokemon(e)  {
             controlId="floatingInput"
             label="Pokemon name"
             className="mb-3 input" >
-            <Form.Control  type="text" value={searchPokemon} onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+            <Form.Control data-testid={"search-name-pokemon"}  type="text" value={searchPokemon} onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
-          <Button  type='submit'>Capture Pokemon</Button>
+          <Button type='submit'>Capture Pokemon</Button>
         </div>
         <div className='status-message'>
           <h4>{statusReq}</h4>
