@@ -79,6 +79,19 @@ describe('Test if all inputs exist in the application', () => {
       expect(btn).toBeInTheDocument();
     });
 
+    it('Test if the button with text "Add Pokemon" exists', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const addbtn = screen.getByTestId("add-btn");
+      expect(addbtn).toBeInTheDocument();
+
+      userEvent.click(addbtn);
+
+      const btnAdd = screen.getByText('Add Pokemon')
+      expect(btnAdd).toBeInTheDocument();
+    });
+
     it('Test if the close form button exists and when clicked the form is closed', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
@@ -98,11 +111,11 @@ describe('Test if all inputs exist in the application', () => {
       userEvent.click(closeBtn);
 
       expect(forms).not.toBeInTheDocument();
-
     });
+
   });
 
-  describe('Tesest the button that delete pokemon in the database', () => {
+  describe('Test the button that delete pokemon in the database', () => {
 
     it('Test if the delete pokemon button exists and when clicked it opens the forms', () => {
 
@@ -116,6 +129,65 @@ describe('Test if all inputs exist in the application', () => {
       const forms = screen.getByTestId('form-delete')
       expect(forms).toBeInTheDocument();
     });
+
+    it('Test if heading with text ("Remove Pokemon on safari") exists in forms', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const deletebtn = screen.getByTestId("delete-btn");
+      userEvent.click(deletebtn);
+      
+      const h5Text = screen.getByText('Remove Pokemon on safari');
+      expect(h5Text).toBeInTheDocument();
+    });
+
+
+    it('Test if input name  exists in forms', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const deletebtn = screen.getByTestId("delete-btn");
+      userEvent.click(deletebtn);
+      const inputName = screen.getByTestId('name-delete-form');
+      expect(inputName).toBeInTheDocument();
+    });
+
+    it('Test if the button with text "Remove Pokemon" exists', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const deleteBtn = screen.getByTestId("delete-btn");
+      expect(deleteBtn).toBeInTheDocument();
+
+      userEvent.click(deleteBtn);
+
+      const removeBtn = screen.getByText('Remove Pokemon')
+      expect(removeBtn).toBeInTheDocument();
+    });
+
+
+    it('Test if the close form button exists and when clicked the form is closed', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const deletebtn = screen.getByTestId('delete-btn');
+      expect(deletebtn).toBeInTheDocument();
+
+      userEvent.click(deletebtn);
+
+      const forms = screen.getByTestId('form-delete')
+      expect(forms).toBeInTheDocument();
+
+
+      const closeBtn = screen.getByTestId('close-delete-form');
+      expect(closeBtn).toBeInTheDocument();
+
+      userEvent.click(closeBtn);
+
+      expect(forms).not.toBeInTheDocument();
+
+    });
+
   })
 
 })

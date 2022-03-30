@@ -47,14 +47,14 @@ async function deletePokemon(e)  {
   return (
       <Form className='form-del' onSubmit={(e) => deletePokemon(e)} data-testid={'form-delete'}>
       <div className='close-btn-del'>
-          <Button variant="danger"  type='button' onClick={() => setDeleteOn(!deleteOn)}>x</Button>
+          <Button data-testid={'close-delete-form'} variant="danger"  type='button' onClick={() => setDeleteOn(!deleteOn)}>x</Button>
         </div>
         <h5>Remove Pokemon on safari</h5>
         <FloatingLabel
             controlId="floatingInput"
             label="Pokemon name"
             className="mb-3 input" >
-            <Form.Control  value={name} type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
+            <Form.Control data-testid={'name-delete-form'}  value={name} type="text" name="name" onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
         <Button className='btn-del' type='submit'>Remove Pokemon </Button>
         <h5>{messageAPI}</h5>
