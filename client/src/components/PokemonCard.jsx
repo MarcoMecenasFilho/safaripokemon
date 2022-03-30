@@ -16,13 +16,13 @@ export default function PokemonCard() {
       {!capturedPokemon.length && <h1 className='no-pokemon'>No Pokemon captured yet</h1>}
       <div className='catchPokemon'>
       {capturedPokemon.map((infos, index) => (
-        <div key={index} className='cardPokemon'>
+        <div key={index} className='cardPokemon' data-testid={`pokemon-card-${infos.name}`}>
           <div className='infos-card'>
             <h4>{infos.name}</h4>
             <h5>{infos.id}</h5>
           </div>
-          <img src={infos.image} alt='pokemonImage'/>
-          <button value={infos.name} onClick={(e) => freePokemon(e)}>Free pokemon</button>
+          <img data-testid={`pokemon-image-${infos.name}`} src={infos.image} alt='pokemonImage'/>
+          <button data-testid={`pokemon-free-${infos.name}`} value={infos.name} onClick={(e) => freePokemon(e)}>Free Pokemon</button>
         </div>
       ))
 
