@@ -1,11 +1,10 @@
 import Pokedex from '../pages/Pokedex';
 import RenderWithProvider from './helper/RenderWithProvider';
-import { waitForElementToBeRemoved } from "@testing-library/react";
 import  {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {pokemonEmpty, pokemonFull} from './mocks/ProvideStateMock'
 
-describe('Test if Pokemon captured exists in application', () => {
+describe.skip('Test if Pokemon captured exists in application', () => {
 
   it('tests if  the "Captured Pokemon" text appears in the application', () => {
     RenderWithProvider(<Pokedex />, pokemonEmpty);
@@ -58,7 +57,7 @@ describe('Test if Pokemon captured exists in application', () => {
     expect(pokemonCard).toHaveTextContent('Free Pokemon');
   })
 
-  it.only('tests if the release free pokemon button is clicked, the pokemon is excluded from the application',  () => {
+  it('tests if the release free pokemon button is clicked, the pokemon is excluded from the application',  () => {
     RenderWithProvider(<Pokedex />, pokemonFull);
     const bulbasaur = screen.queryByText('Bulbasaur');
     expect(bulbasaur).toBeInTheDocument();
