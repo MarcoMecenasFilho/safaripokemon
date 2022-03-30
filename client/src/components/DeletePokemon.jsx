@@ -45,7 +45,7 @@ async function deletePokemon(e)  {
   }
 
   return (
-      <Form className='form-del' onSubmit={(e) => deletePokemon(e)}>
+      <Form className='form-del' onSubmit={(e) => deletePokemon(e)} data-testid={'form-delete'}>
       <div className='close-btn-del'>
           <Button variant="danger"  type='button' onClick={() => setDeleteOn(!deleteOn)}>x</Button>
         </div>

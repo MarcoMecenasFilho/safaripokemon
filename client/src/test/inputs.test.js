@@ -10,7 +10,7 @@ import {pokemonEmpty} from './mocks/ProvideStateMock'
 
 describe('Test if all inputs exist in the application', () => {
 
-  describe('test the button to add pokemon to the bank', () => {
+  describe('Test the button that create pokemon in the database', () => {
 
     
     it('Test if the add pokemon button exists and when clicked it opens the forms', () => {
@@ -67,6 +67,55 @@ describe('Test if all inputs exist in the application', () => {
       const inputImage = screen.getByTestId('image-create-form');
       expect(inputImage).toBeInTheDocument();
     });
+
+    it('Test if the add pokemon button exists in forms', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const addbtn = screen.getByTestId("add-btn");
+      userEvent.click(addbtn);
+
+      const btn = screen.getByText('Add Pokemon')
+      expect(btn).toBeInTheDocument();
+    });
+
+    it('Test if the close form button exists and when clicked the form is closed', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const addbtn = screen.getByTestId("add-btn");
+      expect(addbtn).toBeInTheDocument();
+
+      userEvent.click(addbtn);
+
+      const forms = screen.getByTestId('form-add')
+      expect(forms).toBeInTheDocument();
+
+
+      const closeBtn = screen.getByTestId('close-create-form');
+      expect(closeBtn).toBeInTheDocument();
+
+      userEvent.click(closeBtn);
+
+      expect(forms).not.toBeInTheDocument();
+
+    });
   });
+
+  describe('Tesest the button that delete pokemon in the database', () => {
+
+    it('Test if the delete pokemon button exists and when clicked it opens the forms', () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+
+      const deletebtn = screen.getByTestId("delete-btn");
+      expect(deletebtn).toBeInTheDocument();
+
+      userEvent.click(deletebtn);
+
+      const forms = screen.getByTestId('form-delete')
+      expect(forms).toBeInTheDocument();
+    });
+  })
 
 })
