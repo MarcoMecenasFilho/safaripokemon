@@ -4,7 +4,7 @@ import  {screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {pokemonEmpty, pokemonFull} from './mocks/ProvideStateMock'
 
-describe.skip('Test if Pokemon captured exists in application', () => {
+describe('Test if Pokemon captured exists in application', () => {
 
   it('tests if  the "Captured Pokemon" text appears in the application', () => {
     RenderWithProvider(<Pokedex />, pokemonEmpty);

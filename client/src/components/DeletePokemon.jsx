@@ -33,7 +33,6 @@ async function deletePokemon(e)  {
       return  setMessageAPI(`${name} taken from safari`);
     }
     const json = await result.json()
-    console.log(result)
     if (json.message) {
       return   setMessageAPI(`${name} is not on safari to be taken out`)
     }

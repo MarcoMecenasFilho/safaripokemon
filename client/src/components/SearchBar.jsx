@@ -31,7 +31,6 @@ async function getPokemon(e)  {
   try {
     const result = await fetch(url);
     const json = await result.json();
-    console.log(json)
     if (json.message) {
     return   setStatusReq('Pokemon not found on safari');
     }
