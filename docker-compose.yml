@@ -23,8 +23,6 @@ services:
       - shared-network
     depends_on:
       - "db"
-    environment:
-      - NODE_ENV=test
 
   client:
     container_name: pokemon_safari_client

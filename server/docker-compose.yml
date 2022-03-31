@@ -23,8 +23,8 @@ services:
       - shared-network
     depends_on:
       - "db"
-    env_file:
-      - compose.env
+    environment:
+      NODE_ENV: test
 
 networks:
   shared-network:
