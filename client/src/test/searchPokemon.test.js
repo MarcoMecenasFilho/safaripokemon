@@ -8,7 +8,22 @@ import {pokemonEmpty, pokemonFull} from './mocks/ProvideStateMock'
 describe.only('Test Pokemon search', () => {
   afterEach(() => jest.clearAllMocks());
 
-  it('test if pokemon was successfully purchased', async () => {
+  it('Test if the pokemon has already been captured show the message "Pokemon has been captured"', () => {
+    RenderWithProvider(<Pokedex />, pokemonFull);
+    const searchInput = screen.getByTestId('search-name-pokemon');
+    const searchButton = screen.getByText('Capture Pokemon');
+    expect(searchInput).toBeInTheDocument();
+    expect(searchButton).toBeInTheDocument();
+
+    userEvent.type(searchInput, 'Pikachu');
+    userEvent.click(searchButton);
+
+    const resultCapture = screen.getByText('Pokemon has been captured');
+    expect(resultCapture).toBeInTheDocument();
+
+  })
+  
+  it('test if pokemon was successfully captured', async () => {
     const mockResponse = {
           name: 'Butterfree',
           id: 12,
