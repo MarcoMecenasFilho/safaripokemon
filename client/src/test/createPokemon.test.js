@@ -17,7 +17,7 @@ describe('Test Pokemon create in database',  () => {
     jest.spyOn(global, 'fetch');
     global.fetch.mockResolvedValue({
       json: jest.fn().mockResolvedValue(mockResponse),
-})
+    })
     
     RenderWithProvider(<Pokedex />, pokemonEmpty);
 

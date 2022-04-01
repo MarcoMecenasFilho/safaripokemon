@@ -10,7 +10,7 @@ export default function SearchBar() {
     setCapturedPokemon
   } = useContext(AppContext)
   const [searchPokemon, setSearchPokemon] = useState('');
-  const [statusReq, setStatusReq] = useState('')
+  const [statusReq, setStatusReq] = useState('Welcome to Pokemon safari')
 
 const handleChange = ({target}) => {
     const lower = target.value.toLowerCase();
@@ -37,6 +37,7 @@ async function getPokemon(e)  {
     setSearchPokemon('');
     setStatusReq('Successfully captured pokemon');
     setCapturedPokemon([...capturedPokemon, json]);
+    localStorage.setItem('safariPokemon', JSON.stringify([...capturedPokemon, json]));
   } catch (error) {
     console.log(error)
     }

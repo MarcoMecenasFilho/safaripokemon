@@ -3,8 +3,8 @@ module.exports = {
   development: {
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: 'pokemon_safari',
     host: process.env.HOSTNAME,
+    database: 'pokemon_safari',
     dialect: 'mysql',
   },
   test: {

@@ -9,7 +9,9 @@ export default function PokemonCard() {
   const freePokemon = ({target}) => {
     const pokemonFiltered = capturedPokemon.filter(pokemon => pokemon.name !== target.value)
     setCapturedPokemon(pokemonFiltered);
+    localStorage.setItem('safariPokemon', JSON.stringify(pokemonFiltered));
   }
+
   return (
     <div className='div-catch'>
       <h1>Captured Pokemon</h1>
