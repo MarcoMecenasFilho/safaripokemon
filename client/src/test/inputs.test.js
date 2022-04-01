@@ -25,6 +25,14 @@ describe('Test if all inputs exists in the application', () => {
       expect(searchBtn).toBeInTheDocument();
     });
     
+    it(`Tests if initial message "Welcome to pokemon safari" 
+        is shown in the application`, () => {
+
+      RenderWithProvider(<Pokedex />, pokemonEmpty);
+      const message = screen.getByText('Welcome to Pokemon safari');
+      expect(message).toBeInTheDocument();
+
+    });
 
   });
 
