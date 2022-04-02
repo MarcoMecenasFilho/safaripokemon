@@ -19,10 +19,12 @@ services:
     build: ./server
     ports:
       - 3001:3001
+
     networks:
       - shared-network
     depends_on:
       - "db"
+
 
   client:
     container_name: pokemon_safari_client
