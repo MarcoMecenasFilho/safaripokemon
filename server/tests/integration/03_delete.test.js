@@ -1,32 +1,31 @@
 const frisby = require('frisby');
 const { BASE_URL } = require('../helper/helpers');
-
-const pokemon = {
-  id: 1,
-  name: "Bulbasaur",
-  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
-};
+const newPokemon = {
+  name: "Butterfree",
+  id: 12,
+  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"
+}
 
 describe('Test endpoint to delete Pokemon by name', () => {
   
     it('DELETE should return a status of 200 OK', async () => {
+      await frisby.post(`${BASE_URL}/pokemon`, newPokemon)
       
 
       await frisby.fetch(`${BASE_URL}/pokemon`, {
           method: 'DELETE',
           body: JSON.stringify({
-          name: "Bulbasaur"
+          name: "Butterfree"
         })
         })
         .expect('status', 204);
 
-      await await frisby.post(`${BASE_URL}/pokemon`, pokemon)
-      .expect('status', 201)
     });
   
   
-    it('DELETE should return a json with message and status of 404, when pokemon does not exist in DB', () => {
-      return frisby
+    it('DELETE should return a json with message and status of 404, when pokemon does not exist in DB',  () => {
+
+    return frisby
       .fetch(`${BASE_URL}/pokemon`, {
         method: 'DELETE',
         body: JSON.stringify({

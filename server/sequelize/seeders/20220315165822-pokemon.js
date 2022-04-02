@@ -50,6 +50,10 @@ module.exports = {
         id: 25,
         name: 'Pikachu',
         image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png',
+      },
+      {id: 8227827,
+      name: 'marquinho',
+      image: 'https://avatars.githubusercontent.com/u/86750595?v=4'
       }
       ], { timestamps: false });
   },

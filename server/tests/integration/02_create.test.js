@@ -1,22 +1,21 @@
 const frisby = require('frisby');
 const { BASE_URL } = require('../helper/helpers');
-const shell = require('shelljs');
 const newPokemon = {
-  id: 12,
   name: "Butterfree",
+  id: 12,
   image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png"
-};
-
-const pokemon = {
-  id: 1,
-  name: "Bulbasaur",
-  image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
-};
+}
 
 describe('Test endpoint to create Pokemon', () => {
 
 
   it('should create a new Pokemon', async () => {
+    await frisby.fetch(`${BASE_URL}/pokemon`, {
+      method: 'DELETE',
+      body: JSON.stringify({
+      name: "Butterfree"
+      })
+    });
   
     await frisby.post(`${BASE_URL}/pokemon`, newPokemon)
       .expect('status', 201)
@@ -25,17 +24,11 @@ describe('Test endpoint to create Pokemon', () => {
         expect(json).toEqual(newPokemon);
       })
 
-    await  frisby.fetch(`${BASE_URL}/pokemon`, {
-        method: 'DELETE',
-        body: JSON.stringify({
-        name: "Butterfree"
-      })
-      })
   });
 
   it('when Pokemon name already exists in database', async () => {
   
-    await frisby.post(`${BASE_URL}/pokemon`, pokemon)
+    await frisby.post(`${BASE_URL}/pokemon`, newPokemon )
       .expect('status', 409)
       .then((response) => {
         const {json} = response;
@@ -49,13 +42,22 @@ describe('Test endpoint to create Pokemon', () => {
   
     await frisby.post(`${BASE_URL}/pokemon`, {
       id: 25,
-      name: "Raichu",
-      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png"})
+      name: "asakso29sj27sh72s2h",
+      image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"})
       .expect('status', 409)
       .then((response) => {
         const {json} = response;
         expect(json).toEqual( {message: 'Pokemon id already exists'});
       })
+
+
+      await frisby.fetch(`${BASE_URL}/pokemon`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+        name: "Butterfree"
+        })
+      });
+
   });
 
 })
