@@ -9,6 +9,8 @@ import {pokemonEmpty} from './mocks/ProvideStateMock'
 
 
 describe('Test if all inputs exists in the application', () => {
+  localStorage.clear();
+
 
   describe('Test the form that search Pokemon in the database', () => {
     it('Test if input name  exists in forms', () => {

@@ -1,37 +1,20 @@
 .div-catch {
   align-items: center;
-  background-color: rgb(240, 248, 255, 0.4);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+
   margin-bottom: 30px;
-  overflow: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
   width: 95%;
-}
-
-
-.div-catch::-webkit-scrollbar {
-  width: 0px;
-}
-
-.div-catch::-webkit-scrollbar-track {
-  background: rgb(255, 255, 255);
-}
-
-.div-catch::-webkit-scrollbar-thumb {
-  background-color: rgb(0, 0, 0);
-  border-radius: 20px;
-  border: 3px solid rgb(255, 255, 255);
 }
 
 .div-catch > h1 {
   align-self: center;
   font-weight: 600;
   border-radius: 20px;
-  color: black;
+  font-size: 500%;
+  font-family: Roboto;
+  color: rgb(255, 255, 255);
   padding: 10px;
   text-align: center;
 }
@@ -49,14 +32,33 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
   margin-top: 20px;
   width: 90%;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+}
+
+
+.catchPokemon::-webkit-scrollbar {
+  width: 0px;
+}
+
+.catchPokemon::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+}
+
+.catchPokemon:-webkit-scrollbar-thumb {
+  background-color: rgb(0, 0, 0);
+  border-radius: 20px;
+  border: 3px solid rgb(255, 255, 255);
 }
 
 .cardPokemon {
   align-items: center;
   background-color: white;
-  border-radius: 20px 20px 0 0 ;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -77,6 +79,7 @@
 
 .infos-card > h4  {
   color: black;
+  margin-top: 5%;
   font-weight: 900;
   text-align: center;
   text-transform: capitalize;

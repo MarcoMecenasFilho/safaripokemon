@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
 }
 
 code {

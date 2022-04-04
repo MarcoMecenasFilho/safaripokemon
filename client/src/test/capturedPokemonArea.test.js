@@ -6,6 +6,8 @@ import {pokemonEmpty, pokemonFull} from './mocks/ProvideStateMock'
 
 describe('Test if Pokemon captured exists in application', () => {
 
+  localStorage.clear();
+
   it('tests if  the "Captured Pokemon" text appears in the application', () => {
     RenderWithProvider(<Pokedex />, pokemonEmpty);
 

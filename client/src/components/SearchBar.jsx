@@ -47,6 +47,9 @@ async function getPokemon(e)  {
   return (
     <div className='form-div'>
       <Form onSubmit={(e) => getPokemon(e)}>
+        <div className='status-message'>
+          <h4>{statusReq}</h4>
+        </div>
         <div className='form-div-input'>
           <FloatingLabel
             controlId="floatingInput"
@@ -55,9 +58,6 @@ async function getPokemon(e)  {
             <Form.Control data-testid={"search-name-pokemon"}  type="text" value={searchPokemon} onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
           <Button type='submit'>Capture Pokemon</Button>
-        </div>
-        <div className='status-message'>
-          <h4>{statusReq}</h4>
         </div>
       </Form>
     </div>

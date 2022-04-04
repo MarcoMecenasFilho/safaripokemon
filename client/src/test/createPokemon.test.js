@@ -6,6 +6,9 @@ import {pokemonEmpty} from './mocks/ProvideStateMock'
 
 
 describe('Test Pokemon create in database',  () => {
+  localStorage.clear();
+
+
   afterEach(() => jest.clearAllMocks());
 
   it('test if pokemon is already on database, show the message "Pokemon is already on safari"', async () => {

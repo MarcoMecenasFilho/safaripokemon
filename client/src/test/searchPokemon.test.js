@@ -6,6 +6,8 @@ import {pokemonEmpty, pokemonFull} from './mocks/ProvideStateMock'
 
 
 describe('Test Pokemon search', () => {
+  localStorage.clear();
+
   afterEach(() => jest.clearAllMocks());
 
   it('Test if the pokemon has already been captured show the message "Pokemon has been captured"', () => {

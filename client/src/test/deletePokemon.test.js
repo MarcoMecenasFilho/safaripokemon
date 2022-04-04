@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event';
 import {pokemonEmpty} from './mocks/ProvideStateMock'
 
 describe('Test Pokemon delete in database',  () => {
+  localStorage.clear();
+
   afterEach(() => jest.clearAllMocks());
 
   it('tests if it deletes the existing pokemon in the database and shows the message "Pikachu taken from safari"', async () => {

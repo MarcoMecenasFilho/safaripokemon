@@ -24,6 +24,8 @@
 As seguintes ferramentas foram utilizadas na construção do projeto:
 
 - [Docker](https://www.docker.com/)
+- [Swagger](https://swagger.io/)
+- [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Language_Resources)
 - [expressJs](https://expressjs.com/pt-br/)
 - [Node.js](https://nodejs.org/en/)
@@ -41,7 +43,6 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 - [Joi](https://joi.dev/)
 - [Mysql2](https://www.npmjs.com/package/mysql2)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
-- [ShellJs](https://www.npmjs.com/package/shelljs)
 
 
 <br>
@@ -69,7 +70,7 @@ $ cd safaripokemon
 $ docker-compose up
 
 ```
-Abra seu navegar e coloque o endereço http://localhost:3000/
+### Abra seu navegar e coloque o endereço http://localhost:3000/
 
 <img src='./images/start.gif' width="100%">
 
@@ -85,8 +86,8 @@ Abra seu navegar e coloque o endereço http://localhost:3000/
 
 ### Rodando os testes.
 
-Antes de iniciar os testes, lembre de usar o comando docker-compose down no terminal, na raiz
-do projeto. Caso tenha utilizado ele anteriormente.
+Antes de iniciar os testes, lembre de usar o comando docker-compose up no terminal, na raiz
+do projeto. Caso não tenha utilizado ele anteriormente.
 
 #### Testes Frontend
 
@@ -105,8 +106,8 @@ $ npm test
 ```
 
 #### Testes Backend
-Antes de iniciar os testes, lembre de usar o comando docker-compose down no terminal, na raiz
-do projeto. Caso tenha utilizado ele anteriormente.
+Antes de iniciar os testes, lembre de usar o comando docker-compose up no terminal, na raiz
+do projeto. Caso não tenha utilizado ele anteriormente.
 
 ```bash
 
@@ -117,17 +118,54 @@ $ cd server
 
 $ npm install
 
-#Rode o docker compose na pasta service para poder rodar os testes de integração
-
-$ docker-compose up
-
-# Abra outro terminal na mesma pasta e rode os testes
+# Rode os testes
 
 $ npm test
 
 ```
 
-## Depois que finalizar os testes. Lembre-se de utilizar o comando docker-compose down, nas pastas que foi utilizado o up. 
+## Utilizando a aplicação
+<hr>
+
+Para capturarmos um Pokemon, utilizamos o forms superior. Caso este pokemon esteja no safari (banco de dados) ele será capturado e um card com suas informações é mostrado na área de Pokemon capturados. Caso ele não esteja no safari. Uma mensagem ira dizer que não pode encontra-lo 
+
+-- gif
+
+<br>
+
+Para adicionar um Pokemon ao safari, clicamos no botão e um form será aberto. Adicione as informações necessárias (Para imagens de boa qualidade sugiro o site oficial [Pokemon](https://www.pokemon.com/br/pokedex/), basta copiar o endereço da imagem). Assim o pokemon foi adicionado ao safari (banco de dados). Sendo possível captura-lo.
+
+
+--gif
+
+<br>
+
+É possível criar Pokemon customizados, como transformar você em um Pokemon. Basta adicionar suas informações e o endereço de uma imagem sua.
+
+--gif
+
+<br>
+
+ Caso o nome ou o id do Pokemon já esteja sendo utilizado, uma mensagem irá aparecer.
+
+ --gif
+
+ <br>
+
+ Para retirar um Pokemon do safari(banco de dados). Basta clicar no botão e um forms irá aparecer, coloque o nome que deseja. Caso o pokemon exista ou não. Uma mensagem específica será mostrada.
+
+ --gif
+
+ <br>
+
+
+ Quando Capturamos um pokemon, ele é mostrado ná área de captura. Não é possível capturar Pokemon repetidos. Quando você o captura, mesmo que o nome seja retirado do safari, ele ainda continuará com você (Fica salvo no LocalStore do seu navegador). Para libertar o Pokemon, basta clicar no botão dentro do card daquele Pokemon.
+
+--gif
+
+<br>
+
+## Depois que finalizar os testes ou utilizar a aplicação. Lembre-se de utilizar o comando docker-compose down, nas pastas raiz do projeto. 
 
 
  - Este projeto foi feito com muita dedicação e carinho por Marco Mecenas  [Entre em contato!](https://www.linkedin.com/in/marcomecenasfilho/).
