@@ -6,6 +6,9 @@
   font-family: 'Pokemon Solid';
   font-size: 100%;
 }
+.form-create > h5 {
+  text-align: center;
+}
 
 .btn-create {
   margin-bottom: 20px;

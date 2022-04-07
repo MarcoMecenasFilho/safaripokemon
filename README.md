@@ -53,6 +53,11 @@ As seguintes ferramentas foram utilizadas na construção do projeto:
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Docker](https://www.docker.com/) e [Docker-Compose](https://docs.docker.com/compose/install/).
 
+<br>
+
+### Certifique-se que as portas 3000 e 3001 não estão sendo utilizadas. [Liberar portas](https://stackoverflow.com/questions/14790910/stop-all-instances-of-node-js-server).
+
+<br>
 
 ###  Rodando a aplicação .
 
@@ -70,24 +75,31 @@ $ cd safaripokemon
 $ docker-compose up
 
 ```
+<br>
+
 ### Abra seu navegar e coloque o endereço http://localhost:3000/
+
+<br>
 
 <img src='./images/start.gif' width="100%">
 
+<br>
+
 ## Para acessar a documentação da API, basta acessar o endereço http://localhost:3001/api-docs
+
+<br>
 
 <img src='./images/apidoc.gif' width="100%">
 
 <br>
 
-### Depois de utilizar a aplicação não se esqueça de rodar o comando docker-compose down no terminal, dentro da pasta safaripokemon.
+### Depois de utilizar a aplicação não se esqueça de rodar o comando docker-compose down no terminal, dentro da pasta raiz do projeto.
 
 <br>
 
 ### Rodando os testes.
 
-Antes de iniciar os testes, lembre de usar o comando docker-compose up no terminal, na raiz
-do projeto. Caso não tenha utilizado ele anteriormente.
+Antes de iniciar os testes, lembre de usar o comando docker-compose up no terminal, na raiz do projeto. Caso não tenha utilizado ele anteriormente.
 
 #### Testes Frontend
 
@@ -106,8 +118,7 @@ $ npm test
 ```
 
 #### Testes Backend
-Antes de iniciar os testes, lembre de usar o comando docker-compose up no terminal, na raiz
-do projeto. Caso não tenha utilizado ele anteriormente.
+Antes de iniciar os testes, lembre de usar o comando docker-compose up no terminal, na raiz do projeto. Caso não tenha utilizado ele anteriormente.
 
 ```bash
 
@@ -129,43 +140,48 @@ $ npm test
 
 Para capturarmos um Pokemon, utilizamos o forms superior. Caso este pokemon esteja no safari (banco de dados) ele será capturado e um card com suas informações é mostrado na área de Pokemon capturados. Caso ele não esteja no safari. Uma mensagem ira dizer que não pode encontra-lo 
 
--- gif
+<img src='./images/capturepokemon.gif' width="100%">
 
 <br>
 
-Para adicionar um Pokemon ao safari, clicamos no botão e um form será aberto. Adicione as informações necessárias (Para imagens de boa qualidade sugiro o site oficial [Pokemon](https://www.pokemon.com/br/pokedex/), basta copiar o endereço da imagem). Assim o pokemon foi adicionado ao safari (banco de dados). Sendo possível captura-lo.
+Para adicionar um Pokemon ao safari(Banco de dados), clicamos no botão e um form será aberto. Adicione as informações necessárias (Para imagens de boa qualidade sugiro o site oficial [Pokemon](https://www.pokemon.com/br/pokedex/), basta copiar o endereço da imagem). Assim o pokemon foi adicionado ao safari e assim sendo possível captura-lo.
 
 
---gif
+<img src='./images/addpokemon.gif' width="100%">
 
 <br>
 
 É possível criar Pokemon customizados, como transformar você em um Pokemon. Basta adicionar suas informações e o endereço de uma imagem sua.
 
---gif
+<img src='./images/pokemoncustom.gif' width="100%">
 
 <br>
 
  Caso o nome ou o id do Pokemon já esteja sendo utilizado, uma mensagem irá aparecer.
 
- --gif
+ <img src='./images/ondb.gif' width="100%">
 
  <br>
 
  Para retirar um Pokemon do safari(banco de dados). Basta clicar no botão e um forms irá aparecer, coloque o nome que deseja. Caso o pokemon exista ou não. Uma mensagem específica será mostrada.
 
- --gif
+ <img src='./images/remove.gif' width="100%">
 
  <br>
 
 
- Quando Capturamos um pokemon, ele é mostrado ná área de captura. Não é possível capturar Pokemon repetidos. Quando você o captura, mesmo que o nome seja retirado do safari, ele ainda continuará com você (Fica salvo no LocalStore do seu navegador). Para libertar o Pokemon, basta clicar no botão dentro do card daquele Pokemon.
+ Quando Capturamos um pokemon, ele é mostrado ná área de captura. Não é possível capturar Pokemon repetidos. Quando você o captura, mesmo que o nome seja retirado do safari (Banco de dados), ele ainda continuará com você (Fica salvo no LocalStore do seu navegador). Para libertar o Pokemon, basta clicar no botão dentro do card daquele Pokemon.
 
---gif
+ <img src='./images/store.gif' width="100%">
 
 <br>
 
-## Depois que finalizar os testes ou utilizar a aplicação. Lembre-se de utilizar o comando docker-compose down, nas pastas raiz do projeto. 
+### Depois de finalizar os testes e/ou utilizar a aplicação. Lembre-se de utilizar o comando docker-compose down na pastas raiz do projeto. 
 
+<br>
 
- - Este projeto foi feito com muita dedicação e carinho por Marco Mecenas  [Entre em contato!](https://www.linkedin.com/in/marcomecenasfilho/).
+## Este projeto foi feito com muita dedicação e carinho por Marco Mecenas. [Entre em contato!](https://www.linkedin.com/in/marcomecenasfilho/).
+
+<br>
+
+## Gostou do projeto ? Visite meu [Portfólio](https://marcomecenasfilho.vercel.app/) para visualizar outros trabalhos.

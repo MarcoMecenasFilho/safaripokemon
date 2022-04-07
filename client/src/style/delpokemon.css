@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.form-del > h5 {
+  text-align: center;
+}
+
 .btn-del {
   margin-bottom: 20px;
   color: rgb(0, 0, 0) !important;
