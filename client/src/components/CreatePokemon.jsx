@@ -4,7 +4,7 @@ import { Form, FloatingLabel, Button } from 'react-bootstrap';
 import '../style/createpokemon.css'
 export default function CreatePokemon() {
   const [name, setName] = useState('');
-  const [id, setId] = useState(0);
+  const [id, setId] = useState('');
   const [image, setImage] = useState('');
   const [messageAPI, setMessageAPI] = useState('');
   const { createOn,  setCreateOn} = useContext(AppContext)

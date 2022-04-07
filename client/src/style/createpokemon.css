@@ -3,12 +3,16 @@
   border-radius: 20px;
   margin-top: 15px;
   padding: 10px;
+  font-family: 'Pokemon Solid';
+  font-size: 100%;
 }
 
 .btn-create {
   margin-bottom: 20px;
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(210, 21, 21) !important;
+  border-style: none !important;
 }
-
 .close-btn {
   align-items: center;
   display: flex !important;

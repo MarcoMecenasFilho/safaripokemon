@@ -1,12 +1,17 @@
 .form-del {
   background-color: rgb(240, 248, 255, 0.5);
   border-radius: 20px;
+  font-family: 'Pokemon Solid';
+  font-size: 100%;
   margin-top: 15px;
   padding: 10px;
 }
 
 .btn-del {
   margin-bottom: 20px;
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(210, 21, 21) !important;
+  border-style: none !important;
 }
 
 
