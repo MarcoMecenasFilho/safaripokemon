@@ -3,27 +3,29 @@
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-
   margin-bottom: 30px;
   width: 95%;
+  background-color: rgba(172, 172, 172, 0.8);
 }
 
 .div-catch > h1 {
   align-self: center;
   font-weight: 600;
   border-radius: 20px;
-  font-size: 500%;
-  font-family: Roboto;
-  color: rgb(255, 255, 255);
+  font-size: 300%;
+  font-family: 'Pokemon Solid';
+  letter-spacing: 9px;
+  color: rgb(0, 0, 0);;
   padding: 10px;
   text-align: center;
+  margin-top: 3%;
 }
 
-.no-pokemon {
+h1.no-pokemon {
   text-align: center;
-  margin-top: 50px;
   font-weight: 800;
   text-decoration: underline;
+  margin-top: 100px;
 }
 
 .catchPokemon {

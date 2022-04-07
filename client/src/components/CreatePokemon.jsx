@@ -60,7 +60,6 @@ async function createPokemon(e)  {
         <div className='close-btn'>
           <Button data-testid={"close-create-form"} variant="danger"  type='button' onClick={() => setCreateOn(!createOn)}>x</Button>
         </div>
-        <h5>Add Pokemon on safari</h5>
         <FloatingLabel
             controlId="floatingInput"
             label="Pokemon name"

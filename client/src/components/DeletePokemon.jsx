@@ -48,7 +48,6 @@ async function deletePokemon(e)  {
       <div className='close-btn-del'>
           <Button data-testid={'close-delete-form'} variant="danger"  type='button' onClick={() => setDeleteOn(!deleteOn)}>x</Button>
         </div>
-        <h5>Remove Pokemon on safari</h5>
         <FloatingLabel
             controlId="floatingInput"
             label="Pokemon name"

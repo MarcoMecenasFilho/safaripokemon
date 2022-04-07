@@ -1,16 +1,30 @@
 
 module.exports = {
+  // development: {
+  //   username: process.env.MYSQL_USER,
+  //   password: process.env.MYSQL_PASSWORD,
+  //   host: process.env.HOSTNAME,
+  //   database: 'pokemon_safari',
+  //   dialect: 'mysql',
+  // },
+  // test: {
+  //   username: process.env.MYSQL_USER,
+  //   password: process.env.MYSQL_PASSWORD,
+  //   host: process.env.HOSTNAME,
+  //   database: 'pokemon_safari',
+  //   dialect: 'mysql',
+  // },
   development: {
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    host: process.env.HOSTNAME,
+    username: 'root',
+    password: '39261171',
+    host: 'localhost',
     database: 'pokemon_safari',
     dialect: 'mysql',
   },
   test: {
-    username: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    host: process.env.HOSTNAME,
+    username: 'root',
+    password: '39261171',
+    host: 'localhost',
     database: 'pokemon_safari',
     dialect: 'mysql',
   },

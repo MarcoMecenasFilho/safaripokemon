@@ -1,7 +1,8 @@
 import React,  { useState, useContext } from 'react';
 import  AppContext from '../context/AppContext';
-import { Form, Button, FloatingLabel } from 'react-bootstrap';
+import { Form, FloatingLabel } from 'react-bootstrap';
 import '../style/searchBar.css';
+import capture from '../images/capture.png';  
 
 export default function SearchBar() {
 
@@ -53,11 +54,13 @@ async function getPokemon(e)  {
         <div className='form-div-input'>
           <FloatingLabel
             controlId="floatingInput"
-            label="Pokemon name"
+            label="Capture Pokemon on safari"
             className="mb-3 input" >
             <Form.Control data-testid={"search-name-pokemon"}  type="text" value={searchPokemon} onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
-          <Button type='submit'>Capture Pokemon</Button>
+          <button type='submit'>
+            <img src={capture} alt='capture'/>
+          </button>
         </div>
       </Form>
     </div>
