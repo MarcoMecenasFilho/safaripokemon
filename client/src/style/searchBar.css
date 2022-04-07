@@ -26,13 +26,13 @@ form {
   color: rgb(0, 0, 0);
   background-color: rgb(172, 172, 172);
   letter-spacing: 4px;
-  margin: 15px;
   text-align: center;
-  padding: 20px;
+  padding: 12px 10px;
   font-size: 300%;
   font-family: 'Pokemon Solid';
   border-radius: 20px;
   width: 100%;
+  word-break: normal;
 }
 
 .form-div-input {
@@ -47,13 +47,16 @@ form {
 .form-div-input > .input {
   width: 35% !important;
   margin: 0 !important;
+  font-family: 'Pokemon Solid';
+  letter-spacing: 3px;
+  font-size: 20px;
 }
 
 .form-div-input > button {
   background-color: rgb(240, 248, 255, 0);
   margin-left: 5%;
   border-style: none;
-  width: 10%;
+  width: 8%;
 }
 
 .form-div-input > button > img {
@@ -61,11 +64,27 @@ form {
 }
 
 .form-div-input > button:hover {
-  width: 15%;
+  width: 10%;
 }
 
 .input {
   width: 80%;
+}
+
+
+@media screen and (max-width: 990px) {
+  .form-div-input > .input {
+    width: 50% !important;
+    margin: 0 !important;
+  }
+
+  .form-div-input > button {
+    width: 12%;
+  }
+  .form-div-input > button:hover {
+    width: 14%;
+  }
+  
 }
 
 @media screen and (max-width: 710px) {
@@ -74,10 +93,23 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    margin: 4% 0;
   }
 
   .form-floating>.form-control {
     width: 100%;
+  }
+
+  .form-div-input > .input {
+    width: 93% !important;
+    margin: 0 !important;
+  }
+
+  .form-div-input > button {
+    width: 20%;
+  }
+  .form-div-input > button:hover {
+    width: 22%;
   }
 }
   

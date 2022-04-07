@@ -13,7 +13,7 @@ describe('Test Pokemon search', () => {
   it('Test if the pokemon has already been captured show the message "Pokemon has been captured"', () => {
     RenderWithProvider(<Pokedex />, pokemonFull);
     const searchInput = screen.getByTestId('search-name-pokemon');
-    const searchButton = screen.getByText('Capture Pokemon');
+    const searchButton = screen.getByTestId('btn-search');
     expect(searchInput).toBeInTheDocument();
     expect(searchButton).toBeInTheDocument();
 
@@ -39,7 +39,7 @@ describe('Test Pokemon search', () => {
 
     RenderWithProvider(<Pokedex />, pokemonEmpty);
     const searchInput = screen.getByTestId('search-name-pokemon');
-    const searchButton = screen.getByText('Capture Pokemon');
+    const searchButton = screen.getByTestId('btn-search');
     expect(searchInput).toBeInTheDocument();
     expect(searchButton).toBeInTheDocument();
 
@@ -63,7 +63,7 @@ describe('Test Pokemon search', () => {
     RenderWithProvider(<Pokedex />, pokemonEmpty);
 
     const searchInput = screen.getByTestId('search-name-pokemon');
-    const searchButton = screen.getByText('Capture Pokemon');
+    const searchButton = screen.getByTestId('btn-search');
     expect(searchInput).toBeInTheDocument();
     expect(searchButton).toBeInTheDocument();
 
@@ -88,7 +88,7 @@ describe('Test Pokemon search', () => {
   
       RenderWithProvider(<Pokedex />, pokemonEmpty);
       const searchInput = screen.getByTestId('search-name-pokemon');
-      const searchButton = screen.getByText('Capture Pokemon');
+      const searchButton = screen.getByTestId('btn-search');
       expect(searchInput).toBeInTheDocument();
       expect(searchButton).toBeInTheDocument();
   

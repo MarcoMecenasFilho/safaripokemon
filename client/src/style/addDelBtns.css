@@ -23,6 +23,7 @@
   border-style: none;
   color: white;
   width: 100%;
+  margin-top: 10px;
  }
 
 .btn-div-del > button:hover {
@@ -39,6 +40,7 @@
 
 .btn-div-add > button  {
   background-color: rgb(210, 21, 21);
+  margin-top: 10px;
   padding: 5px 10px;
   font-weight: 600;
   letter-spacing: 5px;
@@ -55,8 +57,17 @@
 
 @media screen and (max-width: 1100px) {
   .btn-add-del {
+    align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    width: 100%;
+  }
+
+  .btn-div-add  {
+    width: 70%;
+  }
+
+  .btn-div-del   {
     width: 70%;
   }
   
@@ -64,19 +75,18 @@
 
 @media screen and (max-width: 500px) {
   .btn-add-del {
+    align-items: center;
     flex-direction: column;
     justify-content: space-around;
-    width: 90%;
+    width: 100%;
   }
 
-  .btn-div-del > button  {
-    width: 50%;
-    margin: 20px 0;
+  .btn-div-add  {
+    width: 70%;
   }
 
-  .btn-div-add > button  {
-    width: 50%;
-    margin: 20px 0;
+  .btn-div-del   {
+    width: 70%;
   }
   
 }

@@ -58,7 +58,7 @@ async function getPokemon(e)  {
             className="mb-3 input" >
             <Form.Control data-testid={"search-name-pokemon"}  type="text" value={searchPokemon} onChange={(e) => handleChange(e)} placeholder='Pokemon' required />
           </FloatingLabel>
-          <button type='submit'>
+          <button type='submit' data-testid={'btn-search'}>
             <img src={capture} alt='capture'/>
           </button>
         </div>

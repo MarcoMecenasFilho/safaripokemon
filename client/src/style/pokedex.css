@@ -2,9 +2,13 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .main-div:before {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   background-image: url('../images/back.jpg');
   content: "";
   position: fixed;

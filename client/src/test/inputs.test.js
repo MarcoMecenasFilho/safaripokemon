@@ -23,7 +23,7 @@ describe('Test if all inputs exists in the application', () => {
     it('Test if pokemon search button exists in forms', () => {
 
       RenderWithProvider(<Pokedex />, pokemonEmpty);
-      const searchBtn = screen.getByText('Capture Pokemon');
+      const searchBtn = screen.getByTestId('btn-search');
       expect(searchBtn).toBeInTheDocument();
     });
     
@@ -55,16 +55,6 @@ describe('Test if all inputs exists in the application', () => {
     });
 
 
-    it('Test if heading with text ("Add Pokemon on safari") exists in forms', () => {
-
-      RenderWithProvider(<Pokedex />, pokemonEmpty);
-
-      const addBtn = screen.getByTestId("add-btn");
-      userEvent.click(addBtn);
-      
-      const h5Text = screen.getByText('Add Pokemon on safari');
-      expect(h5Text).toBeInTheDocument();
-    });
 
     it('Test if input name  exists in forms', () => {
 
@@ -157,18 +147,6 @@ describe('Test if all inputs exists in the application', () => {
       const forms = screen.getByTestId('form-delete')
       expect(forms).toBeInTheDocument();
     });
-
-    it('Test if heading with text ("Remove Pokemon on safari") exists in forms', () => {
-
-      RenderWithProvider(<Pokedex />, pokemonEmpty);
-
-      const deleteBtn = screen.getByTestId("delete-btn");
-      userEvent.click(deleteBtn);
-      
-      const h5Text = screen.getByText('Remove Pokemon on safari');
-      expect(h5Text).toBeInTheDocument();
-    });
-
 
     it('Test if input name  exists in forms', () => {
 
