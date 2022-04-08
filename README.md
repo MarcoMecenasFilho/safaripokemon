@@ -9,8 +9,7 @@
 
 <br>
 <h2>Sobre</h2>
-<p align="justify"> Safari Pokemon é uma aplicação web FullStack, onde você pode adicionar
-                    e remover Pokemon no safari e captura-los.</p 
+<p align="justify"> Safari Pokemon é uma aplicação web FullStack, onde você pode adicionar e/ou remover Pokemon no safari e captura-los.</p 
 
 ### Features
 
@@ -138,7 +137,7 @@ $ npm test
 ## Utilizando a aplicação
 <hr>
 
-Para capturarmos um Pokemon, utilizamos o forms superior. Caso este pokemon esteja no safari (banco de dados) ele será capturado e um card com suas informações é mostrado na área de Pokemon capturados. Caso ele não esteja no safari. Uma mensagem ira dizer que não pode encontra-lo 
+Para capturarmos um Pokemon, utilizamos o forms superior. Caso este pokemon esteja no safari (banco de dados) ele será capturado e um card com suas informações será mostrado na área de Pokemon capturados. Caso ele não esteja no safari. Uma mensagem ira dizer que não pode encontra-lo 
 
 <img src='./images/capturepokemon.gif' width="100%">
 
@@ -151,7 +150,7 @@ Para adicionar um Pokemon ao safari(Banco de dados), clicamos no botão e um for
 
 <br>
 
-É possível criar Pokemon customizados, como transformar você em um Pokemon. Basta adicionar suas informações e o endereço de uma imagem sua.
+É possível criar Pokemon customizados. Como transformar você em um Pokemon. Basta adicionar suas informações e o endereço de uma imagem de sua preferência.
 
 <img src='./images/pokemoncustom.gif' width="100%">
 
